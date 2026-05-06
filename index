@@ -1,69 +1,163 @@
 <!DOCTYPE html>
-<html lang="eu">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Akibuz Ceramics</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Akibuz | Cerámica Artesanal</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --color-principal: #5d5c58; /* Gris arcilla */
+            --color-fondo: #f9f7f2; /* Crema suave */
+            --color-texto: #333;
+            --color-acento: #d4a373; /* Tono tierra/cerámica */
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: var(--color-fondo);
+            color: var(--color-texto);
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            max-width: 600px;
+        }
+
+        .profile-pic {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 3px solid white;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            object-fit: cover;
+        }
+
+        h1 {
+            font-size: 1.8rem;
+            letter-spacing: 2px;
+            margin: 20px 0 10px;
+            text-transform: uppercase;
+            color: var(--color-principal);
+        }
+
+        .description {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .links-container {
+            width: 100%;
+            max-width: 400px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: white;
+            color: var(--color-principal);
+            text-decoration: none;
+            padding: 18px;
+            border-radius: 50px;
+            font-weight: 600;
+            border: 1px solid #eee;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .btn:hover {
+            background: var(--color-principal);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .btn i { font-size: 1.2rem; }
+
+        /* Galería de Imágenes (Sin precios) */
+        .gallery-title {
+            margin-top: 50px;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            color: var(--color-principal);
+            letter-spacing: 1px;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            max-width: 500px;
+            margin-top: 20px;
+        }
+
+        .gallery-item {
+            background: white;
+            padding: 5px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            aspect-ratio: 1/1;
+            object-fit: cover;
+            border-radius: 5px;
+            display: block;
+        }
+
+        footer {
+            margin-top: 60px;
+            font-size: 0.8rem;
+            color: #999;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <h1>Akibuz Ceramics</h1>
-        <nav>
-            <a href="#produktuak">Nire Lanak</a>
-            <a href="#kontaktua">Kontaktua</a>
-            <a href="https://www.instagram.com/akibuz.ceramics/" target="_blank">Instagram</a>
-        </nav>
-    </header>
 
-    <section id="hero">
-        <h2>Eskuz egindako zeramika</h2>
-        <p>Buztinezko sorkuntza paregabeak zure egunerokotasunerako.</p>
-    </section>
-
-    <section id="produktuak">
-        <h2>Katalogoa</h2>
-        <div class="galeria">
-            <div class="produktu-txartela">
-                <img src="akibuz1.png" alt="Zeramika katilua">
-                <p>Katilua - 18€</p>
-            </div>
-            <div class="produktu-txartela">
-                <img src="akibuz2.png" alt="Zeramika loreontzia">
-                <p>Loreontzia - 35€</p>
-            </div>
-            <div class="produktu-txartela">
-                <img src="akibuz3.png" alt="Zeramika platera">
-                <p>Platera - 20€</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="kontaktua">
-        <h2>Egin zure eskaera</h2>
-        <p>Gustatu zaizu zerbait edo enkargu pertsonalizatu bat nahi duzu? Idatzi iezadazu!</p>
-        
-        <form id="kontaktu-formularioa" action="https://formspree.io/f/ZURE_KODEA" method="POST">
-            <label for="izena">Izena:</label>
-            <input type="text" id="izena" name="izena" required>
-
-            <label for="emaila">Posta elektronikoa:</label>
-            <input type="email" id="emaila" name="emaila" required>
-
-            <label for="mezua">Zer behar duzu?:</label>
-            <textarea id="mezua" name="mezua" rows="5" required></textarea>
-
-            <button type="submit">Mezua bidali</button>
-        </form>
-        <p id="eskerrik-asko-mezua" style="display: none; color: #5f4b32; margin-top: 15px; font-weight: bold;">
-            Eskerrik asko! Laster jarriko naiz zurekin harremanetan.
+    <div class="header">
+        <img src="https://via.placeholder.com/150/5d5c58/ffffff?text=AK" alt="Akibuz Logo" class="profile-pic">
+        <h1>Akibuz</h1>
+        <p class="description">
+            Cerámica hecha a mano con alma. Piezas únicas diseñadas para elevar la estética de tu hogar a través del arte y la funcionalidad.
         </p>
-    </section>
+    </div>
+
+    <div class="links-container">
+        <a href="https://www.etsy.com/shop/akibuz" target="_blank" class="btn">
+            <i class="fa-brands fa-etsy"></i> Visita mi tienda en Etsy
+        </a>
+        <a href="https://www.instagram.com/akibuz" target="_blank" class="btn">
+            <i class="fa-brands fa-instagram"></i> Sígueme en Instagram
+        </a>
+        <a href="mailto:tu-correo@gmail.com" class="btn">
+            <i class="fa-regular fa-envelope"></i> Contacto Directo
+        </a>
+    </div>
+
+    <h2 class="gallery-title">Colección Exclusiva</h2>
+    <div class="gallery">
+        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1578749553348-47542c86231d?auto=format&fit=crop&w=300" alt="Cerámica 1"></div>
+        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1525498122393-3ddd204369e7?auto=format&fit=crop&w=300" alt="Cerámica 2"></div>
+        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1610701596007-11502861dcfa?auto=format&fit=crop&w=300" alt="Cerámica 3"></div>
+        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1590422443606-c9c4e78f9f6b?auto=format&fit=crop&w=300" alt="Cerámica 4"></div>
+    </div>
 
     <footer>
-        <p>&copy; 2026 Akibuz Ceramics. Eskubide guztiak erreserbatuta.</p>
+        &copy; 2024 Akibuz | Arte en Cerámica
     </footer>
 
-    <script src="script.js"></script>
 </body>
 </html>
