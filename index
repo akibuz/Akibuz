@@ -52,7 +52,7 @@
       text-decoration: none;
     }
 
-    /* Logo placeholder — reemplázalo con <img src="tu-logo.png" /> */
+    /* Logo placeholder — reemplázalo con <img src="logo.akibuz.png" /> */
     .logo-img {
       width: 44px;
       height: 44px;
