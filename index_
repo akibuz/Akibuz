@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Linktree Personal</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 20px;
+        }
+        .profile-pic {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+        }
+        h1 { font-size: 1.2rem; margin-bottom: 30px; }
+        .link-card {
+            width: 100%;
+            max-width: 400px;
+            background: white;
+            color: #333;
+            text-decoration: none;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: bold;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.2s;
+        }
+        .link-card:hover { transform: scale(1.02); }
+    </style>
+</head>
+<body>
+
+    <img src="https://via.placeholder.com/100" alt="Foto de perfil" class="profile-pic">
+    
+    <h1>@TuUsuario</h1>
+
+    <a href="https://tuweb.com" class="link-card">🌐 Mi Sitio Web</a>
+    <a href="https://youtube.com" class="link-card">🎬 Canal de YouTube</a>
+    <a href="https://wa.me/tu-numero" class="link-card">💬 WhatsApp</a>
+
+</body>
+</html>
