@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="eu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Akibuz Ceramics</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Akibuz Ceramics</h1>
+        <nav>
+            <a href="#produktuak">Nire Lanak</a>
+            <a href="#kontaktua">Kontaktua</a>
+            <a href="https://www.instagram.com/akibuz.ceramics/" target="_blank">Instagram</a>
+        </nav>
+    </header>
+
+    <section id="hero">
+        <h2>Eskuz egindako zeramika</h2>
+        <p>Buztinezko sorkuntza paregabeak zure egunerokotasunerako.</p>
+    </section>
+
+    <section id="produktuak">
+        <h2>Katalogoa</h2>
+        <div class="galeria">
+            <div class="produktu-txartela">
+                <img src="akibuz1.png" alt="Zeramika katilua">
+                <p>Katilua - 18€</p>
+            </div>
+            <div class="produktu-txartela">
+                <img src="akibuz2.png" alt="Zeramika loreontzia">
+                <p>Loreontzia - 35€</p>
+            </div>
+            <div class="produktu-txartela">
+                <img src="akibuz3.png" alt="Zeramika platera">
+                <p>Platera - 20€</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="kontaktua">
+        <h2>Egin zure eskaera</h2>
+        <p>Gustatu zaizu zerbait edo enkargu pertsonalizatu bat nahi duzu? Idatzi iezadazu!</p>
+        
+        <form id="kontaktu-formularioa" action="https://formspree.io/f/ZURE_KODEA" method="POST">
+            <label for="izena">Izena:</label>
+            <input type="text" id="izena" name="izena" required>
+
+            <label for="emaila">Posta elektronikoa:</label>
+            <input type="email" id="emaila" name="emaila" required>
+
+            <label for="mezua">Zer behar duzu?:</label>
+            <textarea id="mezua" name="mezua" rows="5" required></textarea>
+
+            <button type="submit">Mezua bidali</button>
+        </form>
+        <p id="eskerrik-asko-mezua" style="display: none; color: #5f4b32; margin-top: 15px; font-weight: bold;">
+            Eskerrik asko! Laster jarriko naiz zurekin harremanetan.
+        </p>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Akibuz Ceramics. Eskubide guztiak erreserbatuta.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
