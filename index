@@ -370,6 +370,7 @@
     .contact-wrapper {
       max-width: 560px;
       margin: 0 auto;
+      text-align: center;
     }
 
     .contact-wrapper .section-label,
@@ -377,31 +378,6 @@
     .contact-wrapper .section-sub { text-align: center; }
 
     .contact-wrapper .section-sub { margin: 0 auto 2.5rem; }
-
-    .form-notice {
-      background: var(--clay-light);
-      border-left: 3px solid var(--clay);
-      border-radius: 4px;
-      padding: 0.85rem 1.1rem;
-      font-size: 0.88rem;
-      color: var(--clay-dark);
-      margin-bottom: 2rem;
-    }
-
-    /* Google Form iframe */
-    .google-form-wrapper {
-      border-radius: 12px;
-      overflow: hidden;
-      border: 1px solid rgba(107,124,63,0.2);
-      background: #fff;
-    }
-
-    .google-form-wrapper iframe {
-      width: 100%;
-      height: 680px;
-      border: none;
-      display: block;
-    }
 
     /* FOOTER */
     footer {
@@ -610,36 +586,6 @@
       <p class="section-label">Kontaktua</p>
       <h2 class="section-title">Idatzi iezadazu</h2>
       <p class="section-sub">Gustatu zaizu zerbait edo enkargu pertsonalizatu bat nahi duzu?</p>
-
-      <!--
-        ════════════════════════════════════════════════════════════
-        GOOGLE FORMS INSTRUKZIOAK:
-        1. Sortu zure Google Form hemen: https://forms.google.com
-        2. Klik "Bidali" > "<>" (embed) ikonoan
-        3. Kopiatu iframe src="..." URLa
-        4. Ordezkatu beheko ZURE_FORM_ID_HEMEN zure IDarekin
-
-        URLa honelakoa izango da:
-        https://docs.google.com/forms/d/e/XXXXXXX/viewform?embedded=true
-        ════════════════════════════════════════════════════════════
-      -->
-
-      <div class="form-notice">
-        ⚙️ <strong>Oharra:</strong> Google Forms lotura jarri behar da. Beheko instrukzioak jarraitu.
-      </div>
-
-      <div class="google-form-wrapper">
-        <iframe
-          src="ZURE_GOOGLE_FORMS_URL_HEMEN"
-          title="Kontaktu formularioa"
-          frameborder="0"
-          marginheight="0"
-          marginwidth="0"
-          loading="lazy"
-        >
-          Kargatzen...
-        </iframe>
-      </div>
     </div>
   </section>
 
