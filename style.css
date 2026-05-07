@@ -1,129 +1,367 @@
-/* style.css */
+/* style.css — Akibuz Ceramics */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --clay: #6b7c3f;
+  --clay-light: #e8edda;
+  --clay-dark: #445228;
+  --earth: #2b3020;
+  --cream: #f5f7f0;
+  --sage: #7a8c6e;
+  --ink: 'Ink Free', cursive;
+  --body: 'Lato', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #fcfaf8; /* Zuri-beix leuna */
-    color: #333;
+  font-family: var(--body);
+  background: var(--cream);
+  color: var(--earth);
+  line-height: 1.7;
 }
 
-header {
-    background-color: #e8ded3; /* Buztin argia */
-    padding: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+/* ─── NAV ──────────────────────────────────────────── */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: rgba(250, 246, 242, 0.95);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(107, 124, 63, 0.15);
+  padding: 0 2rem;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-header h1 {
-    margin: 0;
-    color: #5f4b32; /* Marroi iluna */
-    padding-left: 20px;
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
 }
 
-nav a {
-    margin: 0 15px;
-    text-decoration: none;
-    color: #5f4b32;
-    font-weight: bold;
-    transition: color 0.3s;
+.logo-img {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--clay);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  flex-shrink: 0;
 }
 
-nav a:hover {
-    color: #9c7b58;
+.logo-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
 }
 
-#hero {
-    text-align: center;
-    padding: 60px 20px;
-    background-color: #ffffff;
-    border-bottom: 1px solid #e8ded3;
+.logo-placeholder-text {
+  font-family: var(--ink);
+  font-size: 18px;
+  color: #fff;
 }
 
-#hero h2 {
-    color: #5f4b32;
-    font-size: 2.5em;
-    margin-bottom: 10px;
+.brand-name {
+  font-family: var(--ink);
+  font-size: 1.5rem;
+  color: var(--clay-dark);
+  letter-spacing: 0.02em;
 }
 
-#produktuak, #kontaktua {
-    padding: 50px 10%;
-    text-align: center;
+/* ─── HAMBURGER ────────────────────────────────────── */
+.hamburger {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  z-index: 200;
 }
 
-.galeria {
-    display: flex;
-    gap: 30px;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-top: 30px;
+.hamburger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--clay-dark);
+  border-radius: 2px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-.produktu-txartela {
-    background: white;
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-    width: 280px;
-    text-align: center;
+.hamburger.open span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
 }
 
-.produktu-txartela img {
-    width: 100%;
-    height: 280px;
-    object-fit: cover;
-    border-radius: 5px;
-    background-color: #e8ded3; /* Argazkia kargatu aurretik ikusiko den kolorea */
+.hamburger.open span:nth-child(2) {
+  opacity: 0;
 }
 
-.produktu-txartela p {
-    font-weight: bold;
-    color: #5f4b32;
-    margin-top: 15px;
+.hamburger.open span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
 }
 
-form {
-    display: flex;
-    flex-direction: column;
-    max-width: 500px;
-    margin: 30px auto 0;
-    text-align: left;
+/* ─── DRAWER ───────────────────────────────────────── */
+.nav-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(43, 48, 32, 0.4);
+  z-index: 98;
 }
 
-label {
-    margin-top: 15px;
-    font-weight: bold;
-    color: #5f4b32;
+.nav-overlay.open {
+  display: block;
 }
 
-input, textarea {
-    padding: 12px;
-    margin-top: 5px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-family: inherit;
+.nav-drawer {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 260px;
+  height: 100%;
+  background: #fff;
+  box-shadow: -4px 0 24px rgba(43, 48, 32, 0.12);
+  z-index: 99;
+  transition: right 0.3s ease;
+  padding: 90px 2rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 
-button {
-    margin-top: 25px;
-    padding: 15px;
-    background-color: #5f4b32;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    font-weight: bold;
-    transition: background-color 0.3s;
+.nav-drawer.open {
+  right: 0;
 }
 
-button:hover {
-    background-color: #4a3a27;
+.nav-drawer a {
+  font-family: var(--body);
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--earth);
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(107, 124, 63, 0.12);
+  transition: color 0.2s;
 }
 
-footer {
-    background-color: #e8ded3;
-    text-align: center;
-    padding: 20px;
-    color: #5f4b32;
+.nav-drawer a:hover {
+  color: var(--clay);
 }
+
+.nav-drawer .drawer-instagram {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.nav-drawer .drawer-etsy {
+  background: var(--clay);
+  color: #fff !important;
+  padding: 0.6rem 1.2rem;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-align: center;
+  border-bottom: none !important;
+  margin-top: 0.5rem;
+  transition: background 0.2s;
+}
+
+.nav-drawer .drawer-etsy:hover {
+  background: var(--clay-dark);
+}
+
+/* ─── HERO ─────────────────────────────────────────── */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  padding: 8rem 2rem 4rem;
+  background: linear-gradient(rgba(43, 48, 32, 0.55), rgba(43, 48, 32, 0.55)),
+              url('1000029529.jpg') center center / cover no-repeat;
+}
+
+.hero-tag {
+  font-family: var(--ink);
+  font-size: 1rem;
+  color: #d6e8c0;
+  letter-spacing: 0.15em;
+  margin-bottom: 1rem;
+  opacity: 0;
+  animation: fadeUp 0.8s ease forwards 0.2s;
+}
+
+.hero h1 {
+  font-family: var(--ink);
+  font-size: clamp(3rem, 8vw, 6rem);
+  color: #ffffff;
+  margin-bottom: 1.25rem;
+  opacity: 0;
+  animation: fadeUp 0.8s ease forwards 0.4s;
+}
+
+.hero p {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.85);
+  max-width: 440px;
+  margin: 0 auto 2.5rem;
+  font-weight: 300;
+  opacity: 0;
+  animation: fadeUp 0.8s ease forwards 0.6s;
+}
+
+.hero-ctas {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  opacity: 0;
+  animation: fadeUp 0.8s ease forwards 0.8s;
+}
+
+.btn-primary {
+  background: var(--clay);
+  color: #fff;
+  border: none;
+  padding: 0.75rem 2rem;
+  border-radius: 50px;
+  font-family: var(--body);
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.15s;
+}
+
+.btn-primary:hover {
+  background: var(--clay-dark);
+  transform: translateY(-2px);
+}
+
+.btn-outline {
+  background: transparent;
+  color: #fff;
+  border: 1.5px solid rgba(255, 255, 255, 0.75);
+  padding: 0.75rem 2rem;
+  border-radius: 50px;
+  font-family: var(--body);
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+.btn-outline:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-2px);
+}
+
+/* ─── SCROLL INDICATOR ─────────────────────────────── */
+.scroll-down {
+  margin-top: 4rem;
+  opacity: 0;
+  animation: fadeUp 0.8s ease forwards 1.2s;
+}
+
+.scroll-down span {
+  display: block;
+  width: 24px;
+  height: 24px;
+  border-right: 2px solid rgba(255, 255, 255, 0.7);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.7);
+  transform: rotate(45deg);
+  margin: 0 auto;
+  animation: bounce 1.4s ease infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: rotate(45deg) translateY(0); }
+  50%       { transform: rotate(45deg) translateY(6px); }
+}
+
+/* ─── SECTIONS ─────────────────────────────────────── */
+section {
+  padding: 5rem 2rem;
+}
+
+.section-label {
+  font-family: var(--ink);
+  font-size: 0.95rem;
+  color: var(--clay);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.section-title {
+  font-family: var(--ink);
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  color: var(--clay-dark);
+  margin-bottom: 1rem;
+}
+
+.section-sub {
+  font-size: 1rem;
+  color: #5a6a50;
+  font-weight: 300;
+  max-width: 500px;
+}
+
+/* ─── CATALOG ──────────────────────────────────────── */
+#produktuak {
+  background: #fff;
+}
+
+.catalog-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.catalog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+a.product-card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.product-card {
+  background: var(--cream);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.product-card:hover {
+  transform: translateY(-6px);
