@@ -1,603 +1,619 @@
 <!DOCTYPE html>
-<html lang="eu">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Akibuz Ceramics</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Ink+Free&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Akibuz Ceramics — Eskuz egindako zeramika | Handmade ceramics</title>
+  <meta name="description" content="Akibuz Ceramics: artisau zeramika, pieza bereziak. Unique handmade pottery with Etsy shop and three languages.">
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --clay: #6b7c3f;
-      --clay-light: #e8edda;
-      --clay-dark: #445228;
-      --earth: #2b3020;
-      --cream: #f5f7f0;
-      --sage: #7a8c6e;
-      --ink: 'Ink Free', cursive;
-      --body: 'Lato', sans-serif;
+    /* ---------- RESET & GLOBAL ---------- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
-
-    html { scroll-behavior: smooth; }
 
     body {
-      font-family: var(--body);
-      background: var(--cream);
-      color: var(--earth);
-      line-height: 1.7;
+      background-color: #fefaf5;
+      color: #2c2a29;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.5;
+      font-weight: 400;
+      font-size: 1rem;
     }
 
-    /* NAV */
-    nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      background: rgba(250, 246, 242, 0.95);
-      backdrop-filter: blur(8px);
-      border-bottom: 1px solid rgba(107,124,63,0.15);
-      padding: 0 2rem;
-      height: 70px;
+    h1, h2, h3 {
+      font-weight: 420;
+      letter-spacing: -0.01em;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.8rem;
+    }
+
+    /* header with logo area */
+    .site-header {
+      padding: 1.2rem 1.8rem 0.8rem;
+      max-width: 1260px;
+      margin: 0 auto;
       display: flex;
-      align-items: center;
       justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      border-bottom: 1px solid #e7dfd7;
+      gap: 1rem;
     }
 
-    .nav-logo {
+    /* Logo area */
+    .logo-area {
       display: flex;
       align-items: center;
       gap: 0.75rem;
-      text-decoration: none;
     }
-
-    /* Logo placeholder — reemplázalo con <img src="logo.akibuz.png" /> */
     .logo-img {
-      width: 44px;
-      height: 44px;
+      width: 48px;
+      height: 48px;
+      background: #dccfbf;
       border-radius: 50%;
-      background: var(--clay);
       display: flex;
       align-items: center;
       justify-content: center;
-      overflow: hidden;
+      font-size: 1.8rem;
+      font-weight: 500;
+      color: #4f3f32;
+      transition: transform 0.2s ease;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.02);
     }
-
+    .logo-img:hover {
+      transform: scale(1.02);
+    }
     .logo-img img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+      width: 48px;
+      height: 48px;
       border-radius: 50%;
+      object-fit: cover;
     }
-
-    .logo-placeholder-text {
-      font-family: var(--ink);
-      font-size: 18px;
-      color: #fff;
-    }
-
-    .brand-name {
-      font-family: var(--ink);
+    .logo-text a {
       font-size: 1.5rem;
-      color: var(--clay-dark);
-      letter-spacing: 0.02em;
+      font-weight: 450;
+      letter-spacing: -0.3px;
+      text-decoration: none;
+      color: #2c2a29;
+      transition: opacity 0.2s;
     }
+    .logo-text a:hover { opacity: 0.7; }
 
+    /* navigation + etsy + lang */
     .nav-links {
       display: flex;
-      align-items: center;
       gap: 2rem;
-      list-style: none;
+      align-items: center;
+      flex-wrap: wrap;
     }
 
     .nav-links a {
-      font-family: var(--body);
-      font-size: 0.9rem;
-      font-weight: 400;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
       text-decoration: none;
-      color: var(--earth);
+      color: #5a534c;
+      font-size: 0.95rem;
       transition: color 0.2s;
+      font-weight: 450;
     }
 
-    .nav-links a:hover { color: var(--clay); }
-
-    .nav-links .btn-instagram {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 34px;
-      height: 34px;
-      border-radius: 50%;
-      border: 1.5px solid var(--clay);
-      color: var(--clay-dark);
-      transition: background 0.2s, color 0.2s, transform 0.15s;
-      padding: 0;
+    .nav-links a:hover, .nav-links a.active {
+      color: #2c2a29;
+      border-bottom: 1px solid #cbc1b6;
+      padding-bottom: 2px;
     }
 
-    .nav-links .btn-instagram:hover {
-      background: var(--clay);
-      color: #fff;
-      transform: translateY(-1px);
-    }
-
-    .nav-links .btn-etsy {
-      background: var(--clay);
-      color: #fff !important;
-      padding: 0.45rem 1.1rem;
-      border-radius: 50px;
-      font-weight: 700;
-      transition: background 0.2s, transform 0.15s;
-    }
-
-    .nav-links .btn-etsy:hover {
-      background: var(--clay-dark);
-      transform: translateY(-1px);
-    }
-
-    /* HERO */
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      text-align: center;
-      padding: 8rem 2rem 4rem;
-      background: linear-gradient(rgba(43,48,32,0.55), rgba(43,48,32,0.55)), url('1000029529.jpg') center center / cover no-repeat;
-    }
-
-    .hero-tag {
-      font-family: var(--ink);
-      font-size: 1rem;
-      color: #d6e8c0;
-      letter-spacing: 0.15em;
-      margin-bottom: 1rem;
-      opacity: 0;
-      animation: fadeUp 0.8s ease forwards 0.2s;
-    }
-
-    .hero h1 {
-      font-family: var(--ink);
-      font-size: clamp(3rem, 8vw, 6rem);
-      color: #ffffff;
-      margin-bottom: 1.25rem;
-      opacity: 0;
-      animation: fadeUp 0.8s ease forwards 0.4s;
-    }
-
-    .hero p {
-      font-size: 1.1rem;
-      color: rgba(255,255,255,0.85);
-      max-width: 440px;
-      margin: 0 auto 2.5rem;
-      font-weight: 300;
-      opacity: 0;
-      animation: fadeUp 0.8s ease forwards 0.6s;
-    }
-
-    .hero-ctas {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-      justify-content: center;
-      opacity: 0;
-      animation: fadeUp 0.8s ease forwards 0.8s;
-    }
-
-    .btn-primary {
-      background: var(--clay);
-      color: #fff;
-      border: none;
-      padding: 0.75rem 2rem;
-      border-radius: 50px;
-      font-family: var(--body);
-      font-size: 0.95rem;
-      font-weight: 700;
-      letter-spacing: 0.04em;
-      cursor: pointer;
-      text-decoration: none;
-      transition: background 0.2s, transform 0.15s;
-    }
-
-    .btn-primary:hover { background: var(--clay-dark); transform: translateY(-2px); }
-
-    .btn-outline {
-      background: transparent;
-      color: var(--clay-dark);
-      border: 1.5px solid var(--clay);
-      padding: 0.75rem 2rem;
-      border-radius: 50px;
-      font-family: var(--body);
-      font-size: 0.95rem;
-      font-weight: 700;
-      letter-spacing: 0.04em;
-      cursor: pointer;
-      text-decoration: none;
-      transition: all 0.2s;
-    }
-
-    .btn-outline:hover { background: var(--clay-light); transform: translateY(-2px); }
-
-    /* SCROLL INDICATOR */
-    .scroll-down {
-      margin-top: 4rem;
-      opacity: 0;
-      animation: fadeUp 0.8s ease forwards 1.2s;
-    }
-
-    .scroll-down span {
-      display: block;
-      width: 24px;
-      height: 24px;
-      border-right: 2px solid rgba(255,255,255,0.7);
-      border-bottom: 2px solid rgba(255,255,255,0.7);
-      transform: rotate(45deg);
-      margin: 0 auto;
-      animation: bounce 1.4s ease infinite;
-    }
-
-    @keyframes bounce {
-      0%, 100% { transform: rotate(45deg) translateY(0); }
-      50% { transform: rotate(45deg) translateY(6px); }
-    }
-
-    /* SECTIONS */
-    section { padding: 5rem 2rem; }
-
-    .section-label {
-      font-family: var(--ink);
-      font-size: 0.95rem;
-      color: var(--clay);
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      margin-bottom: 0.5rem;
-    }
-
-    .section-title {
-      font-family: var(--ink);
-      font-size: clamp(1.8rem, 4vw, 2.8rem);
-      color: var(--clay-dark);
-      margin-bottom: 1rem;
-    }
-
-    .section-sub {
-      font-size: 1rem;
-      color: #5a6a50;
-      font-weight: 300;
-    }
-
-    /* CATALOG */
-    #produktuak {
-      background: #fff;
-    }
-
-    .catalog-header {
-      text-align: center;
-      margin-bottom: 3rem;
-    }
-
-    .catalog-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 2rem;
-      max-width: 1000px;
-      margin: 0 auto;
-    }
-
-    .product-card {
-      background: var(--cream);
-      border-radius: 16px;
-      overflow: hidden;
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-
-    .product-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 16px 40px rgba(59,46,37,0.12);
-    }
-
-    .product-card img {
-      width: 100%;
-      aspect-ratio: 1;
-      object-fit: cover;
-      display: block;
-    }
-
-    .product-card .card-body {
-      padding: 1.25rem 1.5rem;
-    }
-
-    .product-card h3 {
-      font-family: var(--ink);
-      font-size: 1.3rem;
-      color: var(--clay-dark);
-      margin-bottom: 0.35rem;
-    }
-
-    .product-card p {
-      font-size: 0.9rem;
-      color: #5a6a50;
-      font-weight: 300;
-    }
-
-    /* ETSY BANNER */
-    .etsy-banner {
-      background: var(--clay);
-      text-align: center;
-      padding: 4rem 2rem;
-    }
-
-    .etsy-banner p {
-      font-family: var(--ink);
-      font-size: clamp(1.4rem, 3vw, 2rem);
-      color: #fff;
-      margin-bottom: 1.5rem;
-    }
-
-    .btn-etsy-big {
+    /* Etsy button - earthy neutral */
+    .etsy-link {
+      background-color: #e8dfd7;
+      color: #4a3f36 !important;
+      padding: 0.35rem 1rem !important;
+      border-radius: 40px;
+      font-weight: 500;
       display: inline-flex;
       align-items: center;
-      gap: 0.6rem;
-      background: #fff;
-      color: var(--clay-dark);
-      font-weight: 700;
-      font-size: 1rem;
-      padding: 0.85rem 2.2rem;
-      border-radius: 50px;
-      text-decoration: none;
-      transition: transform 0.2s, box-shadow 0.2s;
-      letter-spacing: 0.03em;
+      gap: 6px;
+      transition: background 0.2s, transform 0.1s;
+      border-bottom: none !important;
+    }
+    .etsy-link:hover {
+      background-color: #d9cec3;
+      transform: translateY(-1px);
+      border-bottom: none !important;
+      color: #2c2a29 !important;
     }
 
-    .btn-etsy-big:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,0.15); }
-
-    .etsy-icon {
-      width: 22px;
-      height: 22px;
-    }
-
-    /* CONTACT */
-    #kontaktua {
-      background: var(--cream);
-      max-width: 680px;
-      margin: 0 auto;
-    }
-
-    .contact-wrapper {
-      max-width: 560px;
-      margin: 0 auto;
-      text-align: center;
-    }
-
-    .contact-wrapper .section-label,
-    .contact-wrapper .section-title,
-    .contact-wrapper .section-sub { text-align: center; }
-
-    .contact-wrapper .section-sub { margin: 0 auto 2.5rem; }
-
-    /* FOOTER */
-    footer {
-      background: var(--earth);
-      color: rgba(255,255,255,0.6);
-      text-align: center;
-      padding: 2rem;
-      font-size: 0.88rem;
-    }
-
-    footer a {
-      color: var(--clay-light);
-      text-decoration: none;
-    }
-
-    footer a:hover { color: #fff; }
-
-    footer .footer-brand {
-      font-family: var(--ink);
-      font-size: 1.4rem;
-      color: #fff;
-      margin-bottom: 0.5rem;
-      display: block;
-    }
-
-    /* ANIMATIONS */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    /* LANG SWITCHER */
+    /* language switcher */
     .lang-switcher {
       display: flex;
-      align-items: center;
-      gap: 2px;
-      background: var(--clay-light);
-      border-radius: 50px;
-      padding: 3px;
+      gap: 0.6rem;
+      margin-left: 0.5rem;
+      border-left: 1px solid #ddd2c6;
+      padding-left: 1rem;
     }
 
     .lang-btn {
-      background: transparent;
+      background: none;
       border: none;
+      font-size: 0.8rem;
       cursor: pointer;
-      font-family: var(--body);
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.04em;
-      color: var(--clay-dark);
-      padding: 4px 9px;
-      border-radius: 50px;
-      transition: background 0.2s, color 0.2s;
-      line-height: 1;
+      font-weight: 500;
+      color: #8b7a6b;
+      padding: 0.2rem 0.4rem;
+      border-radius: 20px;
+      transition: all 0.2s;
+      font-family: inherit;
     }
 
     .lang-btn.active {
-      background: var(--clay);
-      color: #fff;
+      background: #e7ddd2;
+      color: #2c2a29;
     }
 
-    .lang-btn:hover:not(.active) {
-      background: rgba(107,124,63,0.15);
+    .lang-btn:hover {
+      color: #2c2a29;
     }
 
-    /* RESPONSIVE */
-    @media (max-width: 600px) {
-      .nav-links { gap: 0.6rem; }
-      .nav-links a { font-size: 0.78rem; }
-      .brand-name { font-size: 1.2rem; }
-      .lang-switcher { display: none; }
+    /* page title */
+    .page-title {
+      font-size: 2.2rem;
+      font-weight: 400;
+      margin: 2rem 0 0.8rem;
+      letter-spacing: -0.02em;
+      color: #2f2c29;
+    }
+
+    /* ---------- ABOUT PAGE NARRATIVE ---------- */
+    .about-intro {
+      margin: 2rem 0 2rem;
+      font-size: 1.15rem;
+      color: #3e3a36;
+      border-left: 2px solid #ddd2c6;
+      padding-left: 1.5rem;
+    }
+
+    .story-section {
+      margin-bottom: 2.8rem;
+    }
+
+    .story-section h2 {
+      font-size: 1.7rem;
+      margin-bottom: 1rem;
+    }
+
+    .artist-figure {
+      margin: 2rem 0 1.5rem;
+      text-align: center;
+    }
+
+    .artist-figure img {
+      max-width: 100%;
+      border-radius: 28px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.03);
+      background: #ede5dc;
+    }
+
+    .caption {
+      font-size: 0.8rem;
+      color: #8b8178;
+      margin-top: 0.5rem;
+    }
+
+    .signature-quote {
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid #e7dfd7;
+      font-size: 1rem;
+      color: #6b625a;
+    }
+
+    /* catalogue grid */
+    .catalogue-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 2rem;
+      margin: 2rem 0 4rem;
+    }
+
+    .ceramic-card {
+      background: #fffcf9;
+      border-radius: 28px;
+      overflow: hidden;
+      transition: transform 0.25s ease, box-shadow 0.2s;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+    }
+
+    .ceramic-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 16px 28px -12px rgba(0, 0, 0, 0.08);
+    }
+
+    .card-img {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      background: #e9e0d6;
+      display: block;
+    }
+
+    .card-info {
+      padding: 1.2rem 1rem 1.4rem;
+      text-align: center;
+    }
+
+    .card-info h3 {
+      font-size: 1.3rem;
+      margin-bottom: 0.3rem;
+    }
+
+    /* contact */
+    .contact-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 3rem;
+      margin: 2rem 0 4rem;
+    }
+
+    .contact-info, .contact-form {
+      flex: 1;
+      background: #fffaf5;
+      padding: 1.8rem;
+      border-radius: 32px;
+      border: 1px solid #ece1d7;
+    }
+    .contact-detail {
+      margin: 1rem 0;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+    }
+    .contact-detail strong {
+      min-width: 80px;
+      color: #5d4d3e;
+    }
+    .form-group {
+      margin-bottom: 1.2rem;
+    }
+    label {
+      display: block;
+      margin-bottom: 0.4rem;
+      font-size: 0.85rem;
+      font-weight: 480;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 0.8rem 1rem;
+      border: 1px solid #ddd0c4;
+      border-radius: 24px;
+      background: white;
+      font-family: inherit;
+    }
+    .btn {
+      background: #2c2a29;
+      color: white;
+      border: none;
+      padding: 0.7rem 1.8rem;
+      border-radius: 40px;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    .btn:hover {
+      background: #4e3f35;
+    }
+    .site-footer {
+      text-align: center;
+      border-top: 1px solid #e7dfd7;
+      padding: 2rem 1rem;
+      font-size: 0.85rem;
+      color: #8f877f;
+      margin-top: 2rem;
+    }
+    @media (max-width: 780px) {
+      .site-header { flex-direction: column; align-items: stretch; }
+      .nav-links { justify-content: space-between; flex-wrap: wrap; row-gap: 12px; }
+      .lang-switcher { margin-left: 0; border-left: none; padding-left: 0; }
+      .page-title { font-size: 1.8rem; }
     }
   </style>
 </head>
 <body>
 
-  <!-- NAV -->
-  <nav>
-    <a href="#" class="nav-logo">
-      <div class="logo-img">
-        <!--
-          LOGO: Reemplaza el contenido de .logo-img con:
-          <img src="tu-logo.png" alt="Akibuz logo" />
-          y elimina el span de abajo.
-        -->
-        <span class="logo-placeholder-text">A</span>
-      </div>
-      <span class="brand-name">Akibuz</span>
-    </a>
-    <ul class="nav-links">
-      <li><a href="#produktuak">Lanak</a></li>
-      <li><a href="#kontaktua">Kontaktua</a></li>
-      <li>
-        <a href="https://www.instagram.com/akibuz.ceramics/" target="_blank" rel="noopener" class="btn-instagram" title="Instagram">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="display:block;">
-            <rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="2"/>
-            <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"/>
-            <circle cx="17.5" cy="6.5" r="1" fill="currentColor"/>
-          </svg>
-        </a>
-      </li>
-      <li><a href="https://akibuz.etsy.com" target="_blank" rel="noopener" class="btn-etsy">Etsy Denda ↗</a></li>
-    </ul>
-  </nav>
-
-  <!-- HERO -->
-  <section class="hero">
-    <p class="hero-tag">✦ Eskuz egindako zeramika</p>
-    <h1>Akibuz<br/>Ceramics</h1>
-    <p>Buztinezko sorkuntza paregabeak zure egunerokotasunerako. Bakoitza bakarra.</p>
-    <div class="hero-ctas">
-      <a href="#produktuak" class="btn-primary">Katalogoa ikusi</a>
-      <a href="#kontaktua" class="btn-outline">Kontaktua</a>
+<header class="site-header">
+  <div class="logo-area">
+    <div class="logo-img">
+      <img src="logo.png" alt="Akibuz Ceramics logo" id="logoImage">
     </div>
-    <div class="scroll-down"><span></span></div>
-  </section>
-
-  <!-- KATALOGOA -->
-  <section id="produktuak">
-    <div class="catalog-header">
-      <p class="section-label">Katalogoa</p>
-      <h2 class="section-title">Nire Lanak</h2>
-      <p class="section-sub">Pieza bakoitza eskuz eta bihotzez egina. Enkargu pertsonalizatuak ere onartzen ditut.</p>
-    </div>
-    <div class="catalog-grid">
-      <div class="product-card">
-        <img src="akibuz1.png" alt="Lorontzia 1" />
-        <div class="card-body">
-          <h3>Lorontzia</h3>
-          <p>Eskuz torneatu eta glazuratu. Pieza bakarra.</p>
-        </div>
-      </div>
-      <div class="product-card">
-        <img src="akibuz2.png" alt="Lorontzia 2" />
-        <div class="card-body">
-          <h3>Lorontzia</h3>
-          <p>Diseinu organikoa zure etxerako.</p>
-        </div>
-      </div>
-      <div class="product-card">
-        <img src="akibuz3.png" alt="Lorontzia 3" />
-        <div class="card-body">
-          <h3>Lorontzia</h3>
-          <p>Eguneroko erabilerarako pieza dotore eta iraunkorra.</p>
-        </div>
-      </div>
-      <div class="product-card">
-        <img src="akibuz4.png" alt="Lorontzia 4" />
-        <div class="card-body">
-          <h3>Lorontzia</h3>
-          <p>Zure irudia hemen.</p>
-        </div>
-      </div>
-      <div class="product-card">
-        <img src="akibuz5.png" alt="Lorontzia 5" />
-        <div class="card-body">
-          <h3>Lorontzia</h3>
-          <p>Zure irudia hemen.</p>
-        </div>
-      </div>
-      <div class="product-card">
-        <img src="akibuz6.png" alt="Lorontzia 6" />
-        <div class="card-body">
-          <h3>Lorontzia</h3>
-          <p>Zure irudia hemen.</p>
-        </div>
-      </div>
-      <div class="product-card">
-        <img src="akibuz7.png" alt="Lorontzia 7" />
-        <div class="card-body">
-          <h3>Lorontzia</h3>
-          <p>Zure irudia hemen.</p>
-        </div>
-      </div>
-      <div class="product-card">
-        <img src="akibuz8.png" alt="Lorontzia 8" />
-        <div class="card-body">
-          <h3>Lorontzia</h3>
-          <p>Zure irudia hemen.</p>
-        </div>
-      </div>
-      <div class="product-card">
-        <img src="akibuz9.png" alt="Lorontzia 9" />
-        <div class="card-body">
-          <h3>Lorontzia</h3>
-          <p>Zure irudia hemen.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ETSY BANNER -->
-  <div class="etsy-banner">
-    <p>Gehiago aurkitu nahi duzu?<br/>Bisitatu nire Etsy denda!</p>
-    <a href="https://akibuz.etsy.com" target="_blank" rel="noopener" class="btn-etsy-big">
-      <svg class="etsy-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M5 4C5 4 5.5 6 5.5 12C5.5 18 5 20 5 20H8.5C8.5 20 10 19 12.5 19C15 19 16 20 16 20V16.5C16 16.5 14.5 17 12.5 17C10.5 17 9.5 16.5 9.5 16.5V13H13.5V10H9.5V7.5C9.5 7.5 10.5 7 12.5 7C14.5 [...]
-      </svg>
-      Akibuz Etsy denda
-    </a>
+    <div class="logo-text"><a href="#" id="logoLink">Akibuz Ceramics</a></div>
   </div>
-
-  <!-- KONTAKTUA -->
-  <section id="kontaktua" style="padding: 5rem 2rem;">
-    <div class="contact-wrapper">
-      <p class="section-label">Kontaktua</p>
-      <h2 class="section-title">Idatzi iezadazu</h2>
-      <p class="section-sub">Gustatu zaizu zerbait edo enkargu pertsonalizatu bat nahi duzu?</p>
+  <div class="nav-links" id="navLinks">
+    <a href="#" data-page="about" class="active" data-i18n="nav_about">About</a>
+    <a href="#" data-page="catalogue" data-i18n="nav_catalogue">Catalogue</a>
+    <a href="#" data-page="contact" data-i18n="nav_contact">Contact</a>
+    <a href="https://www.etsy.com/shop/akibuzceramics" target="_blank" rel="noopener noreferrer" class="etsy-link" data-i18n="etsy_shop">
+      <span>🛒</span> <span data-i18n="etsy_text">Etsy Shop</span>
+    </a>
+    <div class="lang-switcher">
+      <button class="lang-btn" data-lang="eus">EUS</button>
+      <button class="lang-btn active" data-lang="en">EN</button>
+      <button class="lang-btn" data-lang="es">ES</button>
     </div>
-  </section>
+  </div>
+</header>
 
-  <!-- FOOTER -->
-  <footer>
-    <span class="footer-brand">Akibuz Ceramics</span>
-    <p>
-      <a href="https://akibuz.etsy.com" target="_blank" rel="noopener">Etsy denda</a>
-      &nbsp;·&nbsp;
-      <a href="https://www.instagram.com/akibuz.ceramics/" target="_blank" rel="noopener">Instagram</a>
-    </p>
-    <p style="margin-top: 0.75rem;">© 2026 Akibuz Ceramics. Eskubide guztiak erreserbatuta.</p>
-  </footer>
+<main id="mainContent" class="container">
+  <!-- Dynamic content loads here -->
+</main>
 
+<footer class="site-footer">
+  <p data-i18n="footer_text">Akibuz Ceramics — handcrafted with earth and intention</p>
+  <p style="margin-top: 0.3rem;">✧ <span data-i18n="footer_tagline">wheel-thrown & hand-built pieces</span> ✧</p>
+</footer>
+
+<script>
+  // ---------- MULTILANGUAGE DICTIONARY ----------
+  const translations = {
+    nav_about: { eus: "Nori buruz", en: "About", es: "Sobre mí" },
+    nav_catalogue: { eus: "Katalogoa", en: "Catalogue", es: "Catálogo" },
+    nav_contact: { eus: "Kontaktua", en: "Contact", es: "Contacto" },
+    etsy_shop: { eus: "Etsy denda", en: "Etsy Shop", es: "Tienda Etsy" },
+    etsy_text: { eus: "Etsy-n ikusi", en: "Shop on Etsy", es: "Ver en Etsy" },
+    footer_text: { eus: "Akibuz Zeramika — eskuz eta bihotzez landua", en: "Akibuz Ceramics — handcrafted with earth and intention", es: "Akibuz Ceramics — hecho a mano con tierra e intención" },
+    footer_tagline: { eus: "tornuan & eskuz egindako piezak", en: "wheel-thrown & hand-built pieces", es: "piezas torneadas y modeladas a mano" },
+    about_title: { eus: "Nori buruz", en: "About me", es: "Sobre mí" },
+    about_caption: { eus: "Eskuak eta buztina — pieza bakoitzak istorio bat kontatzen du", en: "Hands and clay — every piece tells a story", es: "Manos y arcilla — cada pieza cuenta una historia" },
+    about_intro_text: { 
+      eus: "Alaitz naiz.\nNire lana ukipenaren oroitzapenak, materialaren zintzotasunak eta eskuen erritmo lasaiak gidatzen dute. Buztina funtsezkoa den horretara itzultzeko bidea da — arretaz, pazientziaz eta presentziaz.", 
+      en: "I'm Alaitz.\nMy work is guided by the memory of touch, the honesty of material, and the quiet rhythm of the hands. Clay is my way back to the essential — with attention, patience, and presence.", 
+      es: "Soy Alaitz.\nMi trabajo está guiado por la memoria del tacto, la honestidad del material y el ritmo silencioso de las manos. La arcilla es mi camino de regreso a lo esencial — con atención, paciencia y presencia." 
+    },
+    story1_title: { 
+      eus: "Ikuspegia: Esperimentazioa eta Materiala", 
+      en: "The Focus: Experimentation and Material", 
+      es: "El Enfoque: Experimentación y Material" 
+    },
+    story1_p1: { 
+      eus: "Akibuz keramikaren ikerketa teknikoan oinarritutako proiektua da. Nire ingeniari prestakuntzak lan egiteko modua baldintzatzen du: ez ditut apaingarriak bilatzen; nire helburua buztinak, mineraleak eta beroak nola elkarreragiten duten ulertzea da, nortasun propiodun objektu funtzionalak sortzeko.", 
+      en: "Akibuz is a project centered on the technical investigation of ceramics. My background in engineering conditions my workflow: I do not seek ornamentation, but rather an understanding of how clay, minerals, and heat interact to create functional objects with their own identity.", 
+      es: "Akibuz es un proyecto centrado en la investigación técnica de la cerámica. Mi formación como ingeniera condiciona mi forma de trabajar: no busco la ornamentación, sino entender cómo interactúan la arcilla, los minerales y el calor para crear objetos funcionales con identidad propia." 
+    },
+    story1_p2: { eus: "", en: "", es: "" },
+    story2_title: { 
+      eus: "Materiaren eta Testuraren Analisia", 
+      en: "Analysis of Matter and Texture", 
+      es: "Análisis de la Materia y Textura" 
+    },
+    story2_p1: { 
+      eus: "Nire prozesua lehengaiekin egindako entsegu-errore metodoan oinarritzen da. Gainazalen arteko kontrastea interesatzen zait. Testura gordinak: buztin mota desberdinen izaerarekin esperimentatzen dut (gresa, portzelana, txamotadun lurrak). Esmalteen kimika: nire formulazio propioak garatzen ditut oxido metalikoek erretzean nola erreakzionatzen duten behatzeko, tenperaturaren eta labearen atmosferaren arabera aldatzen diren emaitzak bilatuz. Geometria organikoa: egitura-printzipioak aplikatzen ditut, eskuz edo tornuz sortu arren, erabilera eta erresistentzia logikari erantzuten dioten formak sortzeko.", 
+      en: "My process is built on trial and error with raw materials. I am interested in the contrast between surfaces: Raw textures — I experiment with the character of different clays (stoneware, porcelain, grogged clays). Glaze chemistry — I develop my own formulations to observe how metallic oxides react during firing, seeking results that fluctuate based on temperature and kiln atmosphere. Organic geometry — I apply structural principles to create forms that respond to a logic of utility and resistance.", 
+      es: "Mi proceso se basa en el ensayo y error con las materias primas. Me interesa el contraste entre las superficies: Texturas crudas — experimento con el carácter de los diferentes barros (gres, porcelana, arcillas con chamota). Química de esmaltes — desarrollo mis propias formulaciones para observar cómo reaccionan los óxidos metálicos en la cocción, buscando resultados que varían según la temperatura y la atmósfera del horno. Geometría orgánica — aplico principios estructurales para crear formas que responden a una lógica de uso y resistencia." 
+    },
+    story2_p2: { eus: "", en: "", es: "" },
+    story3_title: { 
+      eus: "Produkzio Ez-seriatua", 
+      en: "Non-Serial Production", 
+      es: "Producción No Seriada" 
+    },
+    story3_p1: { 
+      eus: "Ez dut molderik edo produkzio industrialik erabiltzen. Pieza bakoitza prototipo bakarra da. Balioa prozesuaren berezitasunean datza: tresnaren aztarna, materialaren uzkurtzea eta esmaltearen kristalizazioa. Irauteko diseinatutako objektuak dira, eguneroko logistikan integratzeko pentsatuak.", 
+      en: "I do not work with molds or industrial production methods. Each piece is a unique prototype. The value lies in the singularity of the process: the tool marks, the shrinkage of the material, and the crystallization of the glaze. These are objects designed for durability and intended to be integrated into the logistics of daily life.", 
+      es: "No trabajo con moldes ni producciones industriales. Cada pieza es un prototipo único. El valor reside en la singularidad del proceso: la huella de la herramienta, la contracción del material y la cristalización del esmalte. Son objetos diseñados para durar y para ser integrados en la logística de lo cotidiano." 
+    },
+    story3_p2: { 
+      eus: "Euskal Herriko landa-eremuko nire lantegian, denbora geldoen metodologian oinarrituta egiten dut lan. Prozesua fase tekniko zorrotzetan banatzen da: gorputz zeramikoaren prestaketatik hasi eta hozte-kontroleraino, pieza bakoitzak bere egoera optimoa modu naturalean lor dezan. 'Akibuz materialen ingeniaritzaren eta artisau-keramikaren arteko elkargunea da: testurari, masari eta transformazio termikoari buruzko azterketa bat.'", 
+      en: "From my studio in the Basque countryside, I operate under a methodology of slow cycles. The process is divided into rigorous technical phases — from the preparation of the ceramic body to controlled cooling — allowing each piece to reach its optimal state naturally. 'Akibuz is the intersection of materials engineering and artisanal ceramics: a study of texture, mass, and thermal transformation.'", 
+      es: "Desde mi taller en el entorno rural vasco, trabajo bajo una metodología de tiempos lentos. El proceso se divide en fases técnicas rigurosas: desde la preparación del cuerpo cerámico hasta el control del enfriamiento, permitiendo que cada pieza alcance su estado óptimo de forma natural. 'Akibuz es la intersección entre la ingeniería de materiales y la cerámica artesanal: un estudio sobre la textura, la masa y la transformación térmica.'" 
+    },
+    about_signature: { 
+      eus: "— Funtsezkoaren bueltan, eskuaren eta asmo isilaren bidez. Eskerrik asko.", 
+      en: "— A return to the essential, shaped by hand and quiet intention. Thank you.", 
+      es: "— Un regreso a lo esencial, moldeado a mano y con intención silenciosa. Gracias." 
+    },
+    catalogue_title: { eus: "Katalogoa — pieza bereziak", en: "Catalogue — unique pieces", es: "Catálogo — piezas únicas" },
+    catalogue_sub: { eus: "Pieza bakoitza eskuz egina. Hemen dago eskuragarri dauden lanen hautaketa.", en: "Each piece made by hand. Selection of available works.", es: "Cada pieza hecha a mano. Selección de obras disponibles." },
+    cat_item1: { eus: "Lorontzi bikiak", en: "Twin Vases", es: "Jarrones Gemelos" },
+    cat_item2: { eus: "Errubera", en: "Wheel", es: "Rueda" },
+    cat_item3: { eus: "Lur txirizko ontzia", en: "White Earth Bowl", es: "Cuenco de tierra blanca" },
+    cat_item4: { eus: "Zeramika Lorontzia", en: "Ceramic Planter", es: "Maceta cerámica" },
+    cat_item5: { eus: "Ontziak Biluzik falimia", en: "Naked Vases family", es: "Familia de jarrones desnudos" },
+    cat_item6: { eus: "Buztinezko botila", en: "Clay Bottle", es: "Botella de arcilla" },
+    cat_item7: { eus: "Ontzi zurruna", en: "Mountain Jug", es: "Cuenco de monte" },
+    cat_item8: { eus: "Gorri biluzia", en: "Naked Red", es: "Rojo desnudo" },
+    cat_desc1: { eus: "Esku-zuz landutakoa, arei testura", en: "Hand-thrown, sand texture", es: "Torneado a mano, textura arena" },
+    cat_desc2: { eus: "Harriztontzia beiraztatze organikoarekin", en: "Stoneware pitcher with organic glaze", es: "Pitcher de gres con esmalte orgánico" },
+    cat_desc3: { eus: "Loreontzi berezia, kolore naturalak", en: "Unique planter with earthy tones", es: "Maceta única con tonos terrosos" },
+    cat_desc4: { eus: "Loreontzi berezia, kolore naturalak", en: "Unique planter with earthy tones", es: "Maceta única con tonos terrosos" }, 
+    cat_desc5: { eus: "Keztatutako akaberako pitxerra", en: "Smoked finish vase", es: "Jarrón con acabado ahumado" },
+    cat_desc6: { eus: "Eguneroko errituetarako katilua", en: "Daily ritual bowl, matte finish", es: "Cuenco para ritual diario" },
+    cat_desc7: { eus: "Lorontzi bakarra", en: "One-of-a-kind planter", es: "Maceta única" },
+    cat_desc8: { eus: "Ur pitxer handia, antzinatasunak inspiratua", en: "Large water jug, antiquity inspired", es: "Cántaro grande de agua" },
+
+    contact_title: { eus: "Kontaktua", en: "Contact", es: "Contacto" },
+    contact_info_text: { eus: "Enkarguak, kolaborazioak... pozik entzungo zaitut.", en: "Commissions, collaborations — I'd love to hear from you.", es: "Pedidos, colaboraciones — me encantará saber de ti." },
+    contact_email_label: { eus: "Posta elektronikoa", en: "Email", es: "Correo" },
+    contact_studio_label: { eus: "Estudio bisitak", en: "Studio visits", es: "Visitas al estudio" },
+    contact_studio_val: { eus: "hitzordua jartzeko (Euskal Herria)", en: "by appointment (Basque Country)", es: "con cita (País Vasco)" },
+    contact_instagram: { eus: "Instagram", en: "Instagram", es: "Instagram" },
+    contact_news: { eus: "Buletina", en: "Newsletter", es: "Boletín" },
+    contact_news_text: { eus: "eskuzko istorioak, hilean behin", en: "handmade stories, once a month", es: "historias a mano, mensual" },
+    contact_form_title: { eus: "Bidali mezua", en: "Send a message", es: "Enviar mensaje" },
+    contact_name: { eus: "Izena", en: "Name", es: "Nombre" },
+    contact_email: { eus: "Helbide elektronikoa", en: "Email address", es: "Correo electrónico" },
+    contact_message: { eus: "Mezua", en: "Message", es: "Mensaje" },
+    contact_submit: { eus: "Bidali", en: "Send message", es: "Enviar" },
+    contact_demo_note: { eus: "*demo formularioa — ez da gordetzen", en: "*demo form — not stored", es: "*formulario demo — no se guarda" }
+  };
+
+  let currentLang = "en";
+  let currentPage = "about";
+
+  // IMAGENES LOCALES DEL CATALOGO - CAMBIA AQUI CON TUS ARCHIVOS
+  const ceramicImages = [
+    "akibuz1.png",
+    "akibuz2.png",
+    "akibuz3.png",
+    "akibuz4.png",
+    "akibuz5.png",
+    "akibuz6.png",
+    "akibuz7.png",
+    "akibuz8.png"
+  ];
+
+  // Imagen del artista (local)
+  const artistPortrait = "1000029529.jpg";
+  const studioImage = "1000029873.jpg";
+
+  function t(key) { 
+    return translations[key]?.[currentLang] || key; 
+  }
+
+  function renderAboutPage() {
+    const html = `
+      <div class="artist-figure">
+        <img src="${artistPortrait}" style="width:100%; max-width:780px; border-radius:28px;" alt="Alaitz ceramic artist">
+        <div class="caption">${t("about_caption")}</div>
+      </div>
+      <div class="about-intro">${t("about_intro_text").replace(/\n/g,'<br>')}</div>
+      <div class="story-section">
+        <h2>${t("story1_title")}</h2>
+        <p>${t("story1_p1")}</p>
+        ${t("story1_p2") ? `<p>${t("story1_p2")}</p>` : ''}
+      </div>
+      <div class="story-section">
+        <h2>${t("story2_title")}</h2>
+        <p>${t("story2_p1")}</p>
+        ${t("story2_p2") ? `<p>${t("story2_p2")}</p>` : ''}
+      </div>
+      <div class="story-section">
+        <h2>${t("story3_title")}</h2>
+        <p>${t("story3_p1")}</p>
+        <p>${t("story3_p2")}</p>
+      </div>
+      <div class="signature-quote">${t("about_signature")}</div>
+    `;
+    document.getElementById("mainContent").innerHTML = html;
+  }
+
+function renderCataloguePage() {
+    const items = [
+      { nameKey:"cat_item1", descKey:"cat_desc1", img:ceramicImages[0] },
+      { nameKey:"cat_item2", descKey:"cat_desc2", img:ceramicImages[1] },
+      { nameKey:"cat_item3", descKey:"cat_desc3", img:ceramicImages[2] },
+      { nameKey:"cat_item4", descKey:"cat_desc4", img:ceramicImages[3] },
+      { nameKey:"cat_item5", descKey:"cat_desc5", img:ceramicImages[4] },
+      { nameKey:"cat_item6", descKey:"cat_desc6", img:ceramicImages[5] },
+      { nameKey:"cat_item7", descKey:"cat_desc7", img:ceramicImages[6] },
+      { nameKey:"cat_item8", descKey:"cat_desc8", img:ceramicImages[7] }
+    ];
+    let cards = `<div class="catalogue-grid">`;
+    items.forEach(i => { 
+      cards += `<div class="ceramic-card">
+        <img class="card-img" src="${i.img}" alt="${t(i.nameKey)}" onerror="this.src='https://placehold.co/400x400/e9e0d6/8b7a6b?text=Imagen+no+encontrada'">
+        <div class="card-info">
+          <h3>${t(i.nameKey)}</h3>
+          <p>${t(i.descKey)}</p>
+        </div>
+      </div>`; 
+    });
+    cards += `</div>`;
+    document.getElementById("mainContent").innerHTML = `
+      <h1 class="page-title">${t("catalogue_title")}</h1>
+      <p style="margin-bottom:0.5rem; color:#5e5248;">${t("catalogue_sub")}</p>
+      ${cards}
+    `;
+  }
+  function renderContactPage() {
+    const html = `
+      <h1 class="page-title">${t("contact_title")}</h1>
+      <div class="contact-wrapper">
+        <div class="contact-info">
+          <h3>${t("contact_title")}</h3>
+          <p>${t("contact_info_text")}</p>
+          <div class="contact-detail"><strong>${t("contact_email_label")}:</strong> akibuz@proton.me</div>
+          <div class="contact-detail"><strong>${t("contact_studio_label")}:</strong> ${t("contact_studio_val")}</div>
+          <div class="contact-detail">
+            <strong>${t("contact_instagram")}:</strong> 
+            <a href="https://www.instagram.com/akibuz.ceramics" target="_blank" rel="noopener noreferrer" style="display:inline-flex; align-items:center; gap:6px; color:#1111c; text-decoration:none;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2.98C14.94 2.98 15.28 2.99 16.44 3.04C17.14 3.07 17.8 3.22 18.4 3.52C19.04 3.85 19.52 4.26 19.96 4.78C20.38 5.28 20.68 5.87 20.84 6.53C20.98 7.1 21.02 7.73 21.02 8.84C21.02 11.76 21.01 12.08 20.96 13.22C20.92 14.2 20.68 15.04 20.21 15.82C19.81 16.48 19.28 16.98 18.54 17.41C17.93 17.77 17.27 17.93 16.51 17.98C15.8 18.02 15.5 18.03 12 18.03C8.5 18.03 8.2 18.02 7.49 17.98C6.73 17.93 6.07 17.77 5.46 17.41C4.72 16.98 4.19 16.48 3.79 15.82C3.32 15.04 3.08 14.2 3.04 13.22C2.99 12.08 2.98 11.76 2.98 8.84C2.98 5.92 2.99 5.6 3.04 4.46C3.08 3.48 3.32 2.64 3.79 1.86C4.19 1.2 4.72 0.7 5.46 0.27C6.07 -0.09 6.73 -0.25 7.49 -0.3C8.2 -0.34 8.5 -0.35 12 -0.35C15.5 -0.35 15.8 -0.34 16.51 -0.3C17.27 -0.25 17.93 -0.09 18.54 0.27C19.28 0.7 19.81 1.2 20.21 1.86C20.68 2.64 20.92 3.48 20.96 4.46C21.01 5.6 21.02 5.92 21.02 8.84Z" fill="#E4405F"/>
+                <circle cx="12" cy="12" r="3.5" fill="white"/>
+                <circle cx="17" cy="7" r="1.5" fill="white"/>
+              </svg>
+              @akibuz.ceramics
+            </a>
+          </div>
+          <div class="contact-detail"><strong>${t("contact_news")}:</strong> ${t("contact_news_text")}</div>
+          <div style="margin-top:1.5rem;"><img src="${studioImage}" style="width:100%; border-radius:28px;" alt="Studio"></div>
+        </div>
+        <div class="contact-form">
+          <h3>${t("contact_form_title")}</h3>
+          <form id="contactFormElement">
+            <div class="form-group"><label>${t("contact_name")}</label><input type="text" id="contactName"></div>
+            <div class="form-group"><label>${t("contact_email")}</label><input type="email" id="contactEmail"></div>
+            <div class="form-group"><label>${t("contact_message")}</label><textarea rows="4"></textarea></div>
+            <button type="submit" class="btn">${t("contact_submit")}</button>
+            <p style="font-size:0.7rem; margin-top:0.6rem;">${t("contact_demo_note")}</p>
+          </form>
+        </div>
+      </div>
+    `;
+    document.getElementById("mainContent").innerHTML = html;
+    const form = document.getElementById("contactFormElement");
+    if(form) form.addEventListener("submit", (e) => { 
+      e.preventDefault(); 
+      alert(`✨ ${currentLang==='en'?'Thanks!':(currentLang==='eus'?'Eskerrik asko!':'¡Gracias!')} (demo)`); 
+      form.reset(); 
+    });
+}
+
+  function loadPage(page) {
+    currentPage = page;
+    if(page === "about") renderAboutPage();
+    else if(page === "catalogue") renderCataloguePage();
+    else if(page === "contact") renderContactPage();
+    document.querySelectorAll("#navLinks a[data-page]").forEach(link => {
+      if(link.getAttribute("data-page") === page) link.classList.add("active");
+      else link.classList.remove("active");
+    });
+    window.scrollTo({top:0, behavior:"smooth"});
+  }
+
+  function updateUIBasedOnLanguage() {
+    document.querySelectorAll("[data-i18n]").forEach(el => {
+      const key = el.getAttribute("data-i18n");
+      if(translations[key] && translations[key][currentLang]) {
+        el.innerText = translations[key][currentLang];
+      }
+    });
+    if(currentPage === "about") renderAboutPage();
+    else if(currentPage === "catalogue") renderCataloguePage();
+    else if(currentPage === "contact") renderContactPage();
+    
+    document.querySelectorAll(".lang-btn").forEach(btn => {
+      if(btn.getAttribute("data-lang") === currentLang) btn.classList.add("active");
+      else btn.classList.remove("active");
+    });
+  }
+
+  // Event listeners
+  document.addEventListener("click", (e) => {
+    const link = e.target.closest("#navLinks a[data-page]");
+    if(link) { e.preventDefault(); loadPage(link.getAttribute("data-page")); }
+    const logo = e.target.closest("#logoLink");
+    if(logo) { e.preventDefault(); loadPage("about"); }
+    const langBtn = e.target.closest(".lang-btn");
+    if(langBtn) { 
+      currentLang = langBtn.getAttribute("data-lang"); 
+      updateUIBasedOnLanguage(); 
+    }
+  });
+  
+  // Initialize
+  loadPage("about");
+</script>
 </body>
 </html>
