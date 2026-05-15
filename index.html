@@ -15,7 +15,7 @@
   <meta property="og:image:alt"   content="Alaitz, ceramic artist at Akibuz Ceramics studio in the Basque Country">
   <meta property="og:locale"      content="en_GB">
   <meta property="og:locale:alternate" content="es_ES">
-  <meta property="og:locale:alternate" content="eu_EU">
+  <meta property="og:locale:alternate" content="eu_ES">
   <meta property="og:site_name"   content="Akibuz Ceramics">
 
   <!-- Twitter / X Card -->
@@ -189,7 +189,9 @@
     .about-hero {
       width: 100%;
       aspect-ratio: 16 / 9;
+      max-height: 420px;
       object-fit: cover;
+      object-position: center;
       border-radius: 28px;
       background: #ede5dc;
       display: block;
@@ -415,6 +417,92 @@
       color: #5a3e2b;
     }
 
+    /* truke page */
+    .truke-intro-block {
+      border-left: 2px solid #c8b8a8;
+      padding-left: 1.5rem;
+      margin: 1.5rem 0 2.5rem;
+      font-size: 1.08rem;
+      color: #3e3a36;
+      line-height: 1.75;
+    }
+
+    .truke-section-title {
+      font-weight: 500;
+      color: #8b7a6b;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      font-size: 0.8rem;
+      margin: 2rem 0 0.9rem;
+    }
+
+    .truke-examples {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 0.65rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .truke-example {
+      background: #fdf8f3;
+      border: 1px solid #e7dfd7;
+      border-radius: 16px;
+      padding: 0.75rem 1rem;
+      font-size: 0.9rem;
+      color: #4a3f36;
+      line-height: 1.4;
+    }
+
+    .truke-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .truke-step {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+
+    .truke-step-num {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: #e7ddd2;
+      color: #4a3f36;
+      font-size: 0.85rem;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .truke-step-text {
+      font-size: 0.95rem;
+      color: #3e3a36;
+      line-height: 1.6;
+      padding-top: 3px;
+    }
+
+    .truke-cta-row {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+      margin-bottom: 3rem;
+    }
+
+    .truke-note {
+      font-size: 0.78rem;
+      color: #9b8e84;
+      font-style: italic;
+      margin-top: 1rem;
+    }
+
     /* contact */
     .contact-wrapper {
       display: flex;
@@ -557,6 +645,7 @@
     <a href="#" data-page="about" class="active" data-i18n="nav_about">About</a>
     <a href="#" data-page="catalogue" data-i18n="nav_catalogue">Catalogue</a>
     <a href="#" data-page="services" data-i18n="nav_services">Services</a>
+    <a href="#" data-page="truke" data-i18n="nav_truke">Truke</a>
     <a href="#" data-page="contact" data-i18n="nav_contact">Contact</a>
     <a href="https://www.etsy.com/shop/akibuz" target="_blank" rel="noopener noreferrer" class="etsy-link" data-i18n="etsy_shop">
       <span>🛒</span> <span data-i18n="etsy_text">Etsy Shop</span>
@@ -584,7 +673,8 @@
     nav_about: { eus: "Nori buruz", en: "About", es: "Sobre mí" },
     nav_catalogue: { eus: "Katalogoa", en: "Catalogue", es: "Catálogo" },
     nav_services: { eus: "Zerbitzuak", en: "Services", es: "Servicios" },
-    nav_contact: { eus: "Kontaktua", en: "Contact", es: "Contacto" },
+    nav_truke:    { eus: "Truke", en: "Truke", es: "Truke" },
+    nav_contact:  { eus: "Kontaktua", en: "Contact", es: "Contacto" },
     etsy_shop: { eus: "Etsy denda", en: "Etsy Shop", es: "Tienda Etsy" },
     etsy_text: { eus: "Etsy-n ikusi", en: "Shop on Etsy", es: "Ver en Etsy" },
     footer_text: { eus: "Akibuz Zeramika — Ukimenaren ingeniaritza, oraimenaren sua", en: "Akibuz Ceramics - Engineering touch, firing memory", es: "Akibuz Ceramics — Ingeniería del tacto, cociendo memoria" },
@@ -646,18 +736,39 @@
     cat_item2: { eus: "Errubera", en: "Wheel", es: "Rueda" },
     cat_item3: { eus: "Lur txirizko ontzia", en: "White Earth Bowl", es: "Cuenco de tierra blanca" },
     cat_item4: { eus: "Zeramika Lorontzia", en: "Ceramic Planter", es: "Maceta cerámica" },
-    cat_item5: { eus: "Ontziak Biluzik falimia", en: "Naked Vases family", es: "Familia de jarrones desnudos" },
+    cat_item5: { eus: "Ontzi biluzi familia", en: "Naked Vases family", es: "Familia de jarrones desnudos" },
     cat_item6: { eus: "Buztinezko botila", en: "Clay Bottle", es: "Botella de arcilla" },
     cat_item7: { eus: "Ontzi zurruna", en: "Mountain Jug", es: "Cuenco de monte" },
     cat_item8: { eus: "Gorri biluzia", en: "Naked Red", es: "Rojo desnudo" },
     cat_desc1: { eus: "Esku-zuz landutakoa, arei testura", en: "Hand-thrown, sand texture", es: "Torneado a mano, textura arena" },
     cat_desc2: { eus: "Harriztontzia beiraztatze organikoarekin", en: "Stoneware pitcher with organic glaze", es: "Pitcher de gres con esmalte orgánico" },
     cat_desc3: { eus: "Loreontzi berezia, kolore naturalak", en: "Unique planter with earthy tones", es: "Maceta única con tonos terrosos" },
-    cat_desc4: { eus: "Loreontzi berezia, kolore naturalak", en: "Unique planter with earthy tones", es: "Maceta única con tonos terrosos" }, 
+    cat_desc4: { eus: "Loreontzi berezia, kolore naturalak", en: "Unique planter, natural colours", es: "Maceta única, colores naturales" }, 
     cat_desc5: { eus: "Keztatutako akaberako pitxerra", en: "Smoked finish vase", es: "Jarrón con acabado ahumado" },
     cat_desc6: { eus: "Eguneroko errituetarako katilua", en: "Daily ritual bowl, matte finish", es: "Cuenco para ritual diario" },
     cat_desc7: { eus: "Lorontzi bakarra", en: "One-of-a-kind planter", es: "Maceta única" },
     cat_desc8: { eus: "Ur pitxer handia, antzinatasunak inspiratua", en: "Large water jug, antiquity inspired", es: "Cántaro grande de agua" },
+
+    truke_title:     { eus: "Truke", en: "Truke", es: "Truke" },
+    truke_sub:       { eus: "Diru-truke gabe. Eskuz egindakoaren trukean, eskuz egindakoa.", en: "No money. Handmade for handmade.", es: "Sin dinero. Hecho a mano por hecho a mano." },
+    truke_intro:     {
+      eus: "Trukea lan-logika bat da, ez merkatu bat. Zeramikazko pieza bat eskaintzen dut — eta zerbait elkarrizketatzeko aukera bilatzen dut: produktu bat, zerbitzu bat, ezagutza bat. Eskuz egindakoa bada, denborari balioa ematen badio, elkarrizketatzeko modukoa da.",
+      en: "Truke is a work logic, not a marketplace. I offer a ceramic piece — and I look for something to exchange: a product, a service, knowledge. If it is made by hand, if it values time, it is worth a conversation.",
+      es: "El truke es una lógica de trabajo, no un mercado. Ofrezco una pieza cerámica — y busco algo con qué intercambiarla: un producto, un servicio, un conocimiento. Si está hecho a mano, si valora el tiempo, merece una conversación."
+    },
+    truke_examples_title: { eus: "Adibideak", en: "Examples", es: "Ejemplos" },
+    truke_ex1:       { eus: "Katilu bat ↔ tokiko olio-ekoizlearen olioa", en: "A bowl ↔ oil from a local producer", es: "Un cuenco ↔ aceite de productor local" },
+    truke_ex2:       { eus: "Pitxer bat ↔ ilustrazioetako orri bat", en: "A jug ↔ a sheet of illustrations", es: "Un jarrón ↔ una lámina de ilustración" },
+    truke_ex3:       { eus: "Ontzi bat ↔ eskuz egindako ogia edo gozokia", en: "A vessel ↔ handmade bread or preserves", es: "Una pieza ↔ pan artesano o conservas" },
+    truke_ex4:       { eus: "Pieza bat ↔ argazki-saio bat", en: "A piece ↔ a photography session", es: "Una pieza ↔ una sesión de fotografía" },
+    truke_ex5:       { eus: "Pieza bat ↔ musika-saioa edo irakaskuntza", en: "A piece ↔ a music session or lesson", es: "Una pieza ↔ una clase o sesión de música" },
+    truke_ex6:       { eus: "Pieza bat ↔ landare edo haziak", en: "A piece ↔ plants or seeds", es: "Una pieza ↔ plantas o semillas" },
+    truke_how_title: { eus: "Nola funtzionatzen du?", en: "How does it work?", es: "¿Cómo funciona?" },
+    truke_step1:     { eus: "Idatzi zein pieza nahi duzun eta zer eskaintzen duzun.", en: "Write which piece you want and what you offer.", es: "Escríbeme qué pieza quieres y qué ofreces." },
+    truke_step2:     { eus: "Elkarrizketa bat egiten dugu balio-truke egokia zehazteko.", en: "We have a conversation to agree on a fair exchange.", es: "Tenemos una conversación para acordar un intercambio justo." },
+    truke_step3:     { eus: "Hitzarmena egiten dugu eta trukea burutzen dugu.", en: "We agree and complete the exchange.", es: "Acordamos y completamos el intercambio." },
+    truke_cta:       { eus: "Proposatu trukea", en: "Propose an exchange", es: "Proponer un intercambio" },
+    truke_note:      { eus: "* Trukea ez da denda bat. Onartzen dut edo ez, elkarrizketaren arabera.", en: "* Truke is not a shop. I may accept or not, depending on the conversation.", es: "* El truke no es una tienda. Puedo aceptar o no, según la conversación." },
 
     srv_title:       { eus: "Zerbitzuak", en: "Services", es: "Servicios" },
     srv_sub:         { eus: "Pieza bakoitza elkarrizketa batekin hasten da.", en: "Every piece begins with a conversation.", es: "Cada pieza comienza con una conversación." },
@@ -812,6 +923,35 @@ function renderCataloguePage() {
       ${cards}
     `;
   }
+  function renderTrukePage() {
+    const examples = ["truke_ex1","truke_ex2","truke_ex3","truke_ex4","truke_ex5","truke_ex6"];
+    const exCards = examples.map(k => `<div class="truke-example">${t(k)}</div>`).join('');
+    const steps = [
+      t("truke_step1"),
+      t("truke_step2"),
+      t("truke_step3")
+    ];
+    const stepHTML = steps.map((s,i) => `
+      <div class="truke-step">
+        <div class="truke-step-num">${i+1}</div>
+        <div class="truke-step-text">${s}</div>
+      </div>`).join('');
+
+    document.getElementById("mainContent").innerHTML = `
+      <h1 class="page-title">${t("truke_title")}</h1>
+      <p style="color:#5e5248; margin-bottom:0;">${t("truke_sub")}</p>
+      <div class="truke-intro-block">${t("truke_intro")}</div>
+      <div class="truke-section-title">${t("truke_examples_title")}</div>
+      <div class="truke-examples">${exCards}</div>
+      <div class="truke-section-title">${t("truke_how_title")}</div>
+      <div class="truke-steps">${stepHTML}</div>
+      <div class="truke-cta-row">
+        <a href="#" onclick="loadPage('contact'); return false;" class="btn">${t("truke_cta")}</a>
+      </div>
+      <p class="truke-note">${t("truke_note")}</p>
+    `;
+  }
+
   function renderServicesPage() {
     const services = [
       { nameKey:"srv1_name", descKey:"srv1_desc", noteKey:"srv1_note", icon:"◇", special:false },
@@ -845,11 +985,11 @@ function renderCataloguePage() {
           <div class="contact-detail"><strong>${t("contact_studio_label")}:</strong> ${t("contact_studio_val")}</div>
           <div class="contact-detail">
             <strong>${t("contact_instagram")}:</strong> 
-            <a href="https://www.instagram.com/akibuz.ceramics" target="_blank" rel="noopener noreferrer" style="display:inline-flex; align-items:center; gap:6px; color:#1111c; text-decoration:none;">
+            <a href="https://www.instagram.com/akibuz.ceramics" target="_blank" rel="noopener noreferrer" style="display:inline-flex; align-items:center; gap:6px; color:#111111; text-decoration:none;">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12 2.98C14.94 2.98 15.28 2.99 16.44 3.04C17.14 3.07 17.8 3.22 18.4 3.52C19.04 3.85 19.52 4.26 19.96 4.78C20.38 5.28 20.68 5.87 20.84 6.53C20.98 7.1 21.02 7.73 21.02 8.84C21.02 11.76 21.01 12.08 20.96 13.22C20.92 14.2 20.68 15.04 20.21 15.82C19.81 16.48 19.28 16.98 18.54 17.41C17.93 17.77 17.27 17.93 16.51 17.98C15.8 18.02 15.5 18.03 12 18.03C8.5 18.03 8.2 18.02 7.49 17.98C6.73 17.93 6.07 17.77 5.46 17.41C4.72 16.98 4.19 16.48 3.79 15.82C3.32 15.04 3.08 14.2 3.04 13.22C2.99 12.08 2.98 11.76 2.98 8.84C2.98 5.92 2.99 5.6 3.04 4.46C3.08 3.48 3.32 2.64 3.79 1.86C4.19 1.2 4.72 0.7 5.46 0.27C6.07 -0.09 6.73 -0.25 7.49 -0.3C8.2 -0.34 8.5 -0.35 12 -0.35C15.5 -0.35 15.8 -0.34 16.51 -0.3C17.27 -0.25 17.93 -0.09 18.54 0.27C19.28 0.7 19.81 1.2 20.21 1.86C20.68 2.64 20.92 3.48 20.96 4.46C21.01 5.6 21.02 5.92 21.02 8.84Z" fill="#E4405F"/>
-                <circle cx="12" cy="12" r="3.5" fill="white"/>
-                <circle cx="17" cy="7" r="1.5" fill="white"/>
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" stroke="#E4405F" stroke-width="2" fill="none"/>
+                <circle cx="12" cy="12" r="4" stroke="#E4405F" stroke-width="2" fill="none"/>
+                <circle cx="17.5" cy="6.5" r="1.2" fill="#E4405F"/>
               </svg>
               @akibuz.ceramics
             </a>
@@ -907,6 +1047,7 @@ function renderCataloguePage() {
     if(page === "about") renderAboutPage();
     else if(page === "catalogue") renderCataloguePage();
     else if(page === "services") renderServicesPage();
+    else if(page === "truke") renderTrukePage();
     else if(page === "contact") renderContactPage();
     document.querySelectorAll("#navLinks a[data-page]").forEach(link => {
       if(link.getAttribute("data-page") === page) link.classList.add("active");
@@ -925,6 +1066,7 @@ function renderCataloguePage() {
     if(currentPage === "about") renderAboutPage();
     else if(currentPage === "catalogue") renderCataloguePage();
     else if(currentPage === "services") renderServicesPage();
+    else if(currentPage === "truke") renderTrukePage();
     else if(currentPage === "contact") renderContactPage();
     
     document.querySelectorAll(".lang-btn").forEach(btn => {
