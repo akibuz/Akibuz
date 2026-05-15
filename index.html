@@ -4,7 +4,25 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Akibuz Ceramics — Ukimenaren ingenieritza, memoriaren sua | Engineering touch, firing memory</title>
-  <meta name="description" content="Akibuz Ceramics: artisau zeramika, pieza bereziak. Unique handmade pottery with Etsy shop and three languages.">
+  <meta name="description" content="Akibuz Ceramics: handmade pottery from the Basque Country. Unique stoneware pieces, glaze chemistry, and artisanal ceramics by Alaitz.">
+
+  <!-- Open Graph -->
+  <meta property="og:type"        content="website">
+  <meta property="og:url"         content="https://akibuz.com/">
+  <meta property="og:title"       content="Akibuz Ceramics — Engineering touch, firing memory">
+  <meta property="og:description" content="Handmade ceramics from the Basque Country. Each piece is a unique prototype: stoneware, glaze chemistry, slow process. Shop on Etsy.">
+  <meta property="og:image"       content="https://akibuz.com/1000029529.jpg">
+  <meta property="og:image:alt"   content="Alaitz, ceramic artist at Akibuz Ceramics studio in the Basque Country">
+  <meta property="og:locale"      content="en_GB">
+  <meta property="og:locale:alternate" content="es_ES">
+  <meta property="og:locale:alternate" content="eu_EU">
+  <meta property="og:site_name"   content="Akibuz Ceramics">
+
+  <!-- Twitter / X Card -->
+  <meta name="twitter:card"        content="summary_large_image">
+  <meta name="twitter:title"       content="Akibuz Ceramics — Engineering touch, firing memory">
+  <meta name="twitter:description" content="Handmade ceramics from the Basque Country. Unique stoneware pieces by Alaitz.">
+  <meta name="twitter:image"       content="https://akibuz.com/1000029529.jpg">
   <style>
     /* ---------- RESET & GLOBAL ---------- */
     * {
@@ -168,13 +186,94 @@
     }
 
     /* ---------- ABOUT PAGE NARRATIVE ---------- */
+    .about-hero {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      border-radius: 28px;
+      background: #ede5dc;
+      display: block;
+      margin: 1.5rem 0 0.5rem;
+    }
+
     .about-intro {
-      margin: 2rem 0 2rem;
+      margin: 1.5rem 0 1.5rem;
       font-size: 1.15rem;
       color: #3e3a36;
       border-left: 2px solid #ddd2c6;
       padding-left: 1.5rem;
     }
+
+    /* accordion */
+    .accordion {
+      border-top: 1px solid #e7dfd7;
+      margin-bottom: 0.5rem;
+    }
+
+    .accordion-item {
+      border-bottom: 1px solid #e7dfd7;
+    }
+
+    .accordion-trigger {
+      width: 100%;
+      background: none;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.1rem 0;
+      font-family: inherit;
+      font-size: 1.2rem;
+      font-weight: 420;
+      color: #2f2c29;
+      letter-spacing: -0.01em;
+      text-align: left;
+      gap: 1rem;
+    }
+
+    .accordion-trigger:hover { color: #4e3f35; }
+
+    .accordion-icon {
+      flex-shrink: 0;
+      width: 22px;
+      height: 22px;
+      border: 1px solid #cbc1b6;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.25s ease, background 0.2s;
+      color: #8b7a6b;
+      font-size: 1rem;
+      line-height: 1;
+    }
+
+    .accordion-trigger[aria-expanded="true"] .accordion-icon {
+      transform: rotate(45deg);
+      background: #e7ddd2;
+      color: #2c2a29;
+    }
+
+    .accordion-body {
+      overflow: hidden;
+      max-height: 0;
+      transition: max-height 0.35s ease, padding 0.25s ease;
+      padding: 0;
+    }
+
+    .accordion-body.open {
+      max-height: 600px;
+      padding-bottom: 1.2rem;
+    }
+
+    .accordion-body p {
+      color: #3e3a36;
+      line-height: 1.75;
+      margin-bottom: 0.75rem;
+    }
+
+    .accordion-body p:last-child { margin-bottom: 0; }
 
     .story-section {
       margin-bottom: 2.8rem;
@@ -250,6 +349,72 @@
       margin-bottom: 0.3rem;
     }
 
+    /* services */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.25rem;
+      margin: 2rem 0 4rem;
+    }
+
+    .service-card {
+      background: #fffcf9;
+      border: 1px solid #e7dfd7;
+      border-radius: 24px;
+      padding: 1.6rem 1.4rem 1.4rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+
+    .service-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 28px -10px rgba(0,0,0,0.08);
+    }
+
+    .service-card.new-service {
+      border-color: #c8b8a8;
+      background: #fdf8f3;
+    }
+
+    .service-icon {
+      font-size: 1.6rem;
+      line-height: 1;
+      margin-bottom: 0.2rem;
+    }
+
+    .service-name {
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: #2c2a29;
+      letter-spacing: -0.01em;
+    }
+
+    .service-desc {
+      font-size: 0.88rem;
+      color: #5e5248;
+      line-height: 1.65;
+      flex: 1;
+    }
+
+    .service-note {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: #7a6455;
+      background: #ede5dc;
+      padding: 0.2rem 0.75rem;
+      border-radius: 20px;
+      margin-top: 0.3rem;
+      align-self: flex-start;
+    }
+
+    .service-card.new-service .service-note {
+      background: #e2d5c8;
+      color: #5a3e2b;
+    }
+
     /* contact */
     .contact-wrapper {
       display: flex;
@@ -313,11 +478,58 @@
       color: #8f877f;
       margin-top: 2rem;
     }
+    /* hamburger button */
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.3rem;
+      color: #2c2a29;
+    }
+    .menu-toggle svg { display: block; }
+
     @media (max-width: 780px) {
-      .site-header { flex-direction: column; align-items: stretch; }
-      .nav-links { justify-content: space-between; flex-wrap: wrap; row-gap: 12px; }
-      .lang-switcher { margin-left: 0; border-left: none; padding-left: 0; }
+      .site-header { flex-direction: row; align-items: center; flex-wrap: nowrap; }
+      .menu-toggle { display: flex; align-items: center; margin-left: auto; }
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0;
+        position: absolute;
+        top: 68px;
+        left: 0;
+        right: 0;
+        background: #fefaf5;
+        border-bottom: 1px solid #e7dfd7;
+        padding: 0.8rem 1.8rem 1.2rem;
+        z-index: 100;
+        box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+      }
+      .nav-links.open { display: flex; }
+      .nav-links a {
+        width: 100%;
+        padding: 0.65rem 0;
+        border-bottom: 1px solid #f0e8e0;
+        font-size: 1.05rem;
+      }
+      .nav-links a:last-of-type { border-bottom: none; }
+      .etsy-link {
+        margin-top: 0.6rem;
+        width: 100%;
+        justify-content: center;
+      }
+      .lang-switcher {
+        margin-left: 0;
+        border-left: none;
+        padding-left: 0;
+        margin-top: 0.75rem;
+        width: 100%;
+        justify-content: flex-start;
+      }
       .page-title { font-size: 1.8rem; }
+      .site-header { position: relative; }
     }
   </style>
 </head>
@@ -330,9 +542,21 @@
     </div>
     <div class="logo-text"><a href="#" id="logoLink">Akibuz Ceramics</a></div>
   </div>
+  <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="navLinks">
+    <svg id="iconMenu" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+      <line x1="3" y1="6"  x2="21" y2="6"/>
+      <line x1="3" y1="12" x2="21" y2="12"/>
+      <line x1="3" y1="18" x2="21" y2="18"/>
+    </svg>
+    <svg id="iconClose" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" style="display:none">
+      <line x1="4" y1="4" x2="20" y2="20"/>
+      <line x1="20" y1="4" x2="4" y2="20"/>
+    </svg>
+  </button>
   <div class="nav-links" id="navLinks">
     <a href="#" data-page="about" class="active" data-i18n="nav_about">About</a>
     <a href="#" data-page="catalogue" data-i18n="nav_catalogue">Catalogue</a>
+    <a href="#" data-page="services" data-i18n="nav_services">Services</a>
     <a href="#" data-page="contact" data-i18n="nav_contact">Contact</a>
     <a href="https://www.etsy.com/shop/akibuz" target="_blank" rel="noopener noreferrer" class="etsy-link" data-i18n="etsy_shop">
       <span>🛒</span> <span data-i18n="etsy_text">Etsy Shop</span>
@@ -359,6 +583,7 @@
   const translations = {
     nav_about: { eus: "Nori buruz", en: "About", es: "Sobre mí" },
     nav_catalogue: { eus: "Katalogoa", en: "Catalogue", es: "Catálogo" },
+    nav_services: { eus: "Zerbitzuak", en: "Services", es: "Servicios" },
     nav_contact: { eus: "Kontaktua", en: "Contact", es: "Contacto" },
     etsy_shop: { eus: "Etsy denda", en: "Etsy Shop", es: "Tienda Etsy" },
     etsy_text: { eus: "Etsy-n ikusi", en: "Shop on Etsy", es: "Ver en Etsy" },
@@ -415,6 +640,8 @@
     },
     catalogue_title: { eus: "Katalogoa — pieza bereziak", en: "Catalogue — unique pieces", es: "Catálogo — piezas únicas" },
     catalogue_sub: { eus: "Pieza bakoitza eskuz egina. Hemen dago eskuragarri dauden lanen hautaketa.", en: "Each piece made by hand. Selection of available works.", es: "Cada pieza hecha a mano. Selección de obras disponibles." },
+    catalogue_price_range: { eus: "Piezak 35 € eta 200 € artean.", en: "Pieces from 35 € to 200 €.", es: "Piezas desde 35 € hasta 200 €." },
+    catalogue_price_note: { eus: "Prezio zehatza Etsy-n", en: "Exact price on Etsy", es: "Precio exacto en Etsy" },
     cat_item1: { eus: "Lorontzi bikiak", en: "Twin Vases", es: "Jarrones Gemelos" },
     cat_item2: { eus: "Errubera", en: "Wheel", es: "Rueda" },
     cat_item3: { eus: "Lur txirizko ontzia", en: "White Earth Bowl", es: "Cuenco de tierra blanca" },
@@ -432,6 +659,29 @@
     cat_desc7: { eus: "Lorontzi bakarra", en: "One-of-a-kind planter", es: "Maceta única" },
     cat_desc8: { eus: "Ur pitxer handia, antzinatasunak inspiratua", en: "Large water jug, antiquity inspired", es: "Cántaro grande de agua" },
 
+    srv_title:       { eus: "Zerbitzuak", en: "Services", es: "Servicios" },
+    srv_sub:         { eus: "Pieza bakoitza elkarrizketa batekin hasten da.", en: "Every piece begins with a conversation.", es: "Cada pieza comienza con una conversación." },
+
+    srv1_name:       { eus: "Pieza bakarrak", en: "Unique pieces", es: "Piezas únicas" },
+    srv1_desc:       { eus: "Katalogoan eskuragarri dauden lanak: prototipo bakarrak, serie-produkziorik gabe. Bakoitza esperimentazio prozesu baten emaitza da.", en: "Works available in the catalogue: one-of-a-kind prototypes, no serial production. Each piece is the result of a research process.", es: "Obras disponibles en el catálogo: prototipos únicos, sin producción en serie. Cada pieza es el resultado de un proceso de investigación." },
+    srv1_note:       { eus: "Katalogoan eskuragarri", en: "Available in catalogue", es: "Disponible en catálogo" },
+
+    srv2_name:       { eus: "Enkargo pertsonalizatuak", en: "Custom commissions", es: "Encargos personalizados" },
+    srv2_desc:       { eus: "Bezeroaren beharretara egokitutako pieza bat sortzen dut: neurria, forma, materiala eta esmalte-formulazioa negozia daitezke. Prozesu osoa dokumentatzen dut.", en: "I create a piece tailored to the client's needs: dimensions, form, clay body, and glaze formulation are all open for discussion. The entire process is documented.", es: "Creo una pieza adaptada a las necesidades del cliente: dimensiones, forma, tipo de barro y formulación de esmalte son negociables. Documento todo el proceso." },
+    srv2_note:       { eus: "Kontaktatu kontsulta egiteko", en: "Contact to enquire", es: "Contacta para consultar" },
+
+    srv3_name:       { eus: "Pieza pertsonalak", en: "Personal pieces", es: "Piezas personales" },
+    srv3_desc:       { eus: "Ezkontzetarako, jaiotzarako edo urteurrenetan opari esanguratsuak — eta bezeroaren historia batez landutako objektuak ere (oroitzapen bat, forma bat, material bat). Elkarrizketa batekin hasten da.", en: "Meaningful gifts for weddings, births, or anniversaries — and objects shaped by the client's own story: a memory, a form, a material. It all starts with a conversation.", es: "Regalos con significado para bodas, nacimientos o aniversarios — y objetos moldeados por la historia del cliente: un recuerdo, una forma, un material. Todo empieza con una conversación." },
+    srv3_note:       { eus: "Kontaktatu kontsulta egiteko", en: "Contact to enquire", es: "Contacta para consultar" },
+
+    srv4_name:       { eus: "Errautsentzako urna ekologikoak", en: "Ecological urns", es: "Urnas ecológicas" },
+    srv4_desc:       { eus: "Lurra bueltatzen da lurrari. Lurra desegiten den material biodegradagarriez egindako urnak, ingurumenarekiko errespetuzkoak. Eskari bidez eskuragarri — elkarrizketa lasai batekin hasten da.", en: "Earth returns to earth. Urns made from biodegradable materials that dissolve gently back into the ground, leaving no trace. Available on commission — it begins with a quiet conversation.", es: "La tierra vuelve a la tierra. Urnas elaboradas con materiales biodegradables que se disuelven suavemente en el suelo, sin dejar rastro. Disponible bajo encargo — empieza con una conversación tranquila." },
+    srv4_note:       { eus: "Eskari bereziz eskuragarri", en: "Available on special commission", es: "Disponible bajo encargo especial" },
+
+    srv5_name:       { eus: "Lote txikiak", en: "Small batches", es: "Lotes pequeños" },
+    srv5_desc:       { eus: "Ostalaritzarako, diseinu-dendetan edo opari korporatiboetarako serie txikiak. Gutxieneko eskaera: 6 pieza. Forma eta akaberaren koherentzia bermatzen da, serieko produkziorik gabe.", en: "Small series for hospitality, design shops, or corporate gifting. Minimum order: 6 pieces. Coherence of form and finish guaranteed, without serial production methods.", es: "Series pequeñas para hostelería, tiendas de diseño o regalos corporativos. Pedido mínimo: 6 piezas. Coherencia de forma y acabado garantizada, sin métodos de producción industrial." },
+    srv5_note:       { eus: "Gutxienez 6 pieza", en: "Minimum 6 pieces", es: "Mínimo 6 piezas" },
+
     contact_title: { eus: "Kontaktua", en: "Contact", es: "Contacto" },
     contact_info_text: { eus: "Enkarguak, kolaborazioak... pozik entzungo zaitut.", en: "Commissions, collaborations — I'd love to hear from you.", es: "Pedidos, colaboraciones — me encantará saber de ti." },
     contact_email_label: { eus: "Posta elektronikoa", en: "Email", es: "Correo" },
@@ -445,7 +695,7 @@
     contact_email: { eus: "Helbide elektronikoa", en: "Email address", es: "Correo electrónico" },
     contact_message: { eus: "Mezua", en: "Message", es: "Mensaje" },
     contact_submit: { eus: "Bidali", en: "Send message", es: "Enviar" },
-    contact_demo_note: { eus: "*demo formularioa — ez da gordetzen", en: "*demo form — not stored", es: "*formulario demo — no se guarda" }
+    contact_demo_note: { eus: "", en: "", es: "" }
   };
 
   let currentLang = "en";
@@ -473,29 +723,60 @@
 
   function renderAboutPage() {
     const html = `
-      <div class="artist-figure">
-        <img src="${artistPortrait}" style="width:100%; max-width:780px; border-radius:28px;" alt="Alaitz ceramic artist">
-        <div class="caption">${t("about_caption")}</div>
-      </div>
+      <img class="about-hero" src="${artistPortrait}" alt="Alaitz — Akibuz Ceramics">
+      <div class="caption" style="margin-bottom:1rem;">${t("about_caption")}</div>
       <div class="about-intro">${t("about_intro_text").replace(/\n/g,'<br>')}</div>
-      <div class="story-section">
-        <h2>${t("story1_title")}</h2>
-        <p>${t("story1_p1")}</p>
-        ${t("story1_p2") ? `<p>${t("story1_p2")}</p>` : ''}
-      </div>
-      <div class="story-section">
-        <h2>${t("story2_title")}</h2>
-        <p>${t("story2_p1")}</p>
-        ${t("story2_p2") ? `<p>${t("story2_p2")}</p>` : ''}
-      </div>
-      <div class="story-section">
-        <h2>${t("story3_title")}</h2>
-        <p>${t("story3_p1")}</p>
-        <p>${t("story3_p2")}</p>
+      <div class="accordion" id="aboutAccordion">
+        <div class="accordion-item">
+          <button class="accordion-trigger" aria-expanded="false" data-idx="0">
+            <span>${t("story1_title")}</span>
+            <span class="accordion-icon">+</span>
+          </button>
+          <div class="accordion-body">
+            <p>${t("story1_p1")}</p>
+            ${t("story1_p2") ? `<p>${t("story1_p2")}</p>` : ''}
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-trigger" aria-expanded="false" data-idx="1">
+            <span>${t("story2_title")}</span>
+            <span class="accordion-icon">+</span>
+          </button>
+          <div class="accordion-body">
+            <p>${t("story2_p1")}</p>
+            ${t("story2_p2") ? `<p>${t("story2_p2")}</p>` : ''}
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-trigger" aria-expanded="false" data-idx="2">
+            <span>${t("story3_title")}</span>
+            <span class="accordion-icon">+</span>
+          </button>
+          <div class="accordion-body">
+            <p>${t("story3_p1")}</p>
+            <p>${t("story3_p2")}</p>
+          </div>
+        </div>
       </div>
       <div class="signature-quote">${t("about_signature")}</div>
     `;
     document.getElementById("mainContent").innerHTML = html;
+
+    // Accordion logic
+    document.querySelectorAll(".accordion-trigger").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const body = btn.nextElementSibling;
+        const isOpen = body.classList.contains("open");
+        // close all
+        document.querySelectorAll(".accordion-body").forEach(b => b.classList.remove("open"));
+        document.querySelectorAll(".accordion-trigger").forEach(b => b.setAttribute("aria-expanded","false"));
+        // open clicked if it was closed
+        if (!isOpen) {
+          body.classList.add("open");
+          btn.setAttribute("aria-expanded","true");
+        }
+      });
+    });
   }
 
 function renderCataloguePage() {
@@ -522,10 +803,37 @@ function renderCataloguePage() {
     cards += `</div>`;
     document.getElementById("mainContent").innerHTML = `
       <h1 class="page-title">${t("catalogue_title")}</h1>
-      <p style="margin-bottom:0.5rem; color:#5e5248;">${t("catalogue_sub")}</p>
+      <p style="margin-bottom:0.25rem; color:#5e5248;">${t("catalogue_sub")}</p>
+      <p style="margin-bottom:1.5rem; font-size:0.9rem; color:#8b7a6b;">
+        <span style="display:inline-block; background:#f0e8e0; color:#5a3e2b; padding:0.25rem 0.85rem; border-radius:20px; font-weight:450;">35 € – 200 €</span>
+        &nbsp;${t("catalogue_price_note")} →
+        <a href="https://www.etsy.com/shop/akibuz" target="_blank" rel="noopener noreferrer" style="color:#5a3e2b; text-decoration:underline; text-underline-offset:3px;">Etsy</a>
+      </p>
       ${cards}
     `;
   }
+  function renderServicesPage() {
+    const services = [
+      { nameKey:"srv1_name", descKey:"srv1_desc", noteKey:"srv1_note", icon:"◇", special:false },
+      { nameKey:"srv2_name", descKey:"srv2_desc", noteKey:"srv2_note", icon:"✦", special:false },
+      { nameKey:"srv3_name", descKey:"srv3_desc", noteKey:"srv3_note", icon:"❋", special:false },
+      { nameKey:"srv4_name", descKey:"srv4_desc", noteKey:"srv4_note", icon:"○", special:true  },
+      { nameKey:"srv5_name", descKey:"srv5_desc", noteKey:"srv5_note", icon:"⬡", special:false },
+    ];
+    let cards = services.map(s => `
+      <div class="service-card${s.special ? ' new-service' : ''}">
+        <div class="service-icon">${s.icon}</div>
+        <div class="service-name">${t(s.nameKey)}</div>
+        <div class="service-desc">${t(s.descKey)}</div>
+        <span class="service-note">${t(s.noteKey)}</span>
+      </div>`).join('');
+    document.getElementById("mainContent").innerHTML = `
+      <h1 class="page-title">${t("srv_title")}</h1>
+      <p style="margin-bottom:0.5rem; color:#5e5248;">${t("srv_sub")}</p>
+      <div class="services-grid">${cards}</div>
+    `;
+  }
+
   function renderContactPage() {
     const html = `
       <h1 class="page-title">${t("contact_title")}</h1>
@@ -552,21 +860,45 @@ function renderCataloguePage() {
         <div class="contact-form">
           <h3>${t("contact_form_title")}</h3>
           <form id="contactFormElement">
-            <div class="form-group"><label>${t("contact_name")}</label><input type="text" id="contactName"></div>
-            <div class="form-group"><label>${t("contact_email")}</label><input type="email" id="contactEmail"></div>
-            <div class="form-group"><label>${t("contact_message")}</label><textarea rows="4"></textarea></div>
-            <button type="submit" class="btn">${t("contact_submit")}</button>
-            <p style="font-size:0.7rem; margin-top:0.6rem;">${t("contact_demo_note")}</p>
+            <div class="form-group"><label>${t("contact_name")}</label><input type="text" id="contactName" name="name" required></div>
+            <div class="form-group"><label>${t("contact_email")}</label><input type="email" id="contactEmail" name="email" required></div>
+            <div class="form-group"><label>${t("contact_message")}</label><textarea id="contactMessage" name="message" rows="4" required></textarea></div>
+            <input type="hidden" name="_language" id="formLang" value="${currentLang}">
+            <button type="submit" class="btn" id="contactSubmitBtn">${t("contact_submit")}</button>
+            <p id="formFeedback" style="font-size:0.85rem; margin-top:0.8rem; min-height:1.2em;"></p>
           </form>
         </div>
       </div>
     `;
     document.getElementById("mainContent").innerHTML = html;
     const form = document.getElementById("contactFormElement");
-    if(form) form.addEventListener("submit", (e) => { 
-      e.preventDefault(); 
-      alert(`✨ ${currentLang==='en'?'Thanks!':(currentLang==='eus'?'Eskerrik asko!':'¡Gracias!')} (demo)`); 
-      form.reset(); 
+    if(form) form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const btn = document.getElementById("contactSubmitBtn");
+      const feedback = document.getElementById("formFeedback");
+      btn.disabled = true;
+      btn.style.opacity = "0.6";
+      feedback.style.color = "inherit";
+      feedback.textContent = currentLang === 'eus' ? 'Bidaltzen...' : currentLang === 'es' ? 'Enviando...' : 'Sending...';
+      try {
+        const res = await fetch("https://formspree.io/f/mdabrboa", {
+          method: "POST",
+          headers: { "Accept": "application/json" },
+          body: new FormData(form)
+        });
+        if (res.ok) {
+          feedback.style.color = "#5a8a5a";
+          feedback.textContent = currentLang === 'eus' ? '✓ Mezua bidali da. Eskerrik asko!' : currentLang === 'es' ? '✓ Mensaje enviado. ¡Gracias!' : '✓ Message sent. Thank you!';
+          form.reset();
+        } else {
+          throw new Error("server error");
+        }
+      } catch {
+        feedback.style.color = "#a05050";
+        feedback.textContent = currentLang === 'eus' ? 'Errorea. Saiatu berriro edo idatzi akibuz@proton.me' : currentLang === 'es' ? 'Error al enviar. Prueba de nuevo o escribe a akibuz@proton.me' : 'Could not send. Please try again or email akibuz@proton.me';
+        btn.disabled = false;
+        btn.style.opacity = "1";
+      }
     });
 }
 
@@ -574,6 +906,7 @@ function renderCataloguePage() {
     currentPage = page;
     if(page === "about") renderAboutPage();
     else if(page === "catalogue") renderCataloguePage();
+    else if(page === "services") renderServicesPage();
     else if(page === "contact") renderContactPage();
     document.querySelectorAll("#navLinks a[data-page]").forEach(link => {
       if(link.getAttribute("data-page") === page) link.classList.add("active");
@@ -591,6 +924,7 @@ function renderCataloguePage() {
     });
     if(currentPage === "about") renderAboutPage();
     else if(currentPage === "catalogue") renderCataloguePage();
+    else if(currentPage === "services") renderServicesPage();
     else if(currentPage === "contact") renderContactPage();
     
     document.querySelectorAll(".lang-btn").forEach(btn => {
@@ -614,6 +948,39 @@ function renderCataloguePage() {
   
   // Initialize
   loadPage("about");
+
+  // Hamburger menu toggle
+  const menuToggle = document.getElementById("menuToggle");
+  const navLinks   = document.getElementById("navLinks");
+  const iconMenu   = document.getElementById("iconMenu");
+  const iconClose  = document.getElementById("iconClose");
+
+  menuToggle.addEventListener("click", () => {
+    const isOpen = navLinks.classList.toggle("open");
+    menuToggle.setAttribute("aria-expanded", isOpen);
+    iconMenu.style.display  = isOpen ? "none"  : "block";
+    iconClose.style.display = isOpen ? "block" : "none";
+  });
+
+  // Close menu when a nav link is clicked
+  navLinks.addEventListener("click", (e) => {
+    if (e.target.closest("a")) {
+      navLinks.classList.remove("open");
+      menuToggle.setAttribute("aria-expanded", "false");
+      iconMenu.style.display  = "block";
+      iconClose.style.display = "none";
+    }
+  });
+
+  // Close menu on outside click
+  document.addEventListener("click", (e) => {
+    if (!menuToggle.contains(e.target) && !navLinks.contains(e.target)) {
+      navLinks.classList.remove("open");
+      menuToggle.setAttribute("aria-expanded", "false");
+      iconMenu.style.display  = "block";
+      iconClose.style.display = "none";
+    }
+  });
 </script>
 </body>
 </html>
