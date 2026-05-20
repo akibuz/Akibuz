@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Akibuz Ceramics — Ukimenaren ingenieritza, memoriaren sua | Engineering touch, firing memory</title>
-  <meta name="description" content="Akibuz Ceramics: handmade pottery from the Basque Country. Unique stoneware pieces, glaze chemistry, and artisanal ceramics by Alaitz.">
+  <title>Akibuz Ceramics — Engineered to be touched. Fired to be remembered.</title>
+  <meta name="description" content="Akibuz Ceramics by Alaitz — handmade stoneware and earthware from the Basque Country. Glaze chemistry, kiln experiments, unique prototypes. Engineered to be touched, fired to be remembered. Shop on Etsy.">
 
   <!-- Open Graph -->
   <meta property="og:type"        content="website">
   <meta property="og:url"         content="https://akibuz.com/">
-  <meta property="og:title"       content="Akibuz Ceramics — Engineering touch, firing memory">
-  <meta property="og:description" content="Handmade ceramics from the Basque Country. Each piece is a unique prototype: stoneware, glaze chemistry, slow process. Shop on Etsy.">
+  <meta property="og:title"       content="Akibuz Ceramics — Engineered to be touched. Fired to be remembered.">
+  <meta property="og:description" content="Akibuz Ceramics by Alaitz — handmade stoneware and earthware from the Basque Country. Glaze chemistry, kiln experiments, unique prototypes. Each piece engineered to be touched, fired to be remembered. Shop on Etsy.">
   <meta property="og:image"       content="https://akibuz.com/1000029529.jpg">
   <meta property="og:image:alt"   content="Alaitz, ceramic artist at Akibuz Ceramics studio in the Basque Country">
   <meta property="og:locale"      content="en_GB">
@@ -20,8 +20,8 @@
 
   <!-- Twitter / X Card -->
   <meta name="twitter:card"        content="summary_large_image">
-  <meta name="twitter:title"       content="Akibuz Ceramics — Engineering touch, firing memory">
-  <meta name="twitter:description" content="Handmade ceramics from the Basque Country. Unique stoneware pieces by Alaitz.">
+  <meta name="twitter:title"       content="Akibuz Ceramics — Engineered to be touched. Fired to be remembered.">
+  <meta name="twitter:description" content="Handmade ceramics from the Basque Country. Unique prototypes by Alaitz — engineered to be touched, fired to be remembered.">
   <meta name="twitter:image"       content="https://akibuz.com/1000029529.jpg">
   <style>
     /* ---------- RESET & GLOBAL ---------- */
@@ -183,6 +183,48 @@
       margin: 2rem 0 0.8rem;
       letter-spacing: -0.02em;
       color: #2f2c29;
+    }
+
+    /* ---------- HERO FRASE SELLO ---------- */
+    .brand-hero {
+      padding: 2.5rem 0 1.5rem;
+      border-bottom: 1px solid #e7dfd7;
+      margin-bottom: 0.5rem;
+    }
+    .brand-hero-tagline {
+      font-size: 1.75rem;
+      font-weight: 420;
+      letter-spacing: -0.02em;
+      color: #2f2c29;
+      line-height: 1.25;
+      margin-bottom: 0.6rem;
+    }
+    .brand-hero-tagline em {
+      color: #C67A5C;
+      font-style: normal;
+    }
+    .brand-hero-sub {
+      font-size: 0.95rem;
+      color: #7a6f66;
+      margin-bottom: 1.2rem;
+      line-height: 1.6;
+    }
+    .hero-etsy-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #C67A5C;
+      color: #fff;
+      text-decoration: none;
+      padding: 0.45rem 1.2rem;
+      border-radius: 40px;
+      font-size: 0.88rem;
+      font-weight: 500;
+      transition: background 0.2s, transform 0.1s;
+    }
+    .hero-etsy-btn:hover {
+      background: #b5694d;
+      transform: translateY(-1px);
     }
 
     /* ---------- ABOUT PAGE NARRATIVE ---------- */
@@ -581,8 +623,8 @@
 </main>
 
 <footer class="site-footer">
-  <p data-i18n="footer_text">Akibuz.Ceramics — handcrafted with earth and intention</p>
-  <p style="margin-top: 0.3rem;">✧ <span data-i18n="footer_tagline">wheel-thrown & hand-built pieces</span> ✧</p>
+  <p data-i18n="footer_text">Akibuz Ceramics — Engineered to be touched. Fired to be remembered.</p>
+  <p style="margin-top: 0.3rem;"><span data-i18n="footer_tagline">Basque Country · handmade & unique · akibuz.ceramics</span></p>
 </footer>
 
 <script>
@@ -595,8 +637,10 @@
     nav_contact:  { eus: "Kontaktua", en: "Contact", es: "Contacto" },
     etsy_shop: { eus: "Etsy denda", en: "Etsy Shop", es: "Tienda Etsy" },
     etsy_text: { eus: "Etsy-n ikusi", en: "Shop on Etsy", es: "Ver en Etsy" },
-    footer_text: { eus: "Akibuz Zeramika — Ukimenaren ingeniaritza, oraimenaren sua", en: "Akibuz Ceramics - Engineering touch, firing memory", es: "Akibuz Ceramics — Ingeniería del tacto, cociendo memoria" },
-    footer_tagline: { eus: "tornuan & eskuz egindako piezak", en: "wheel-thrown & hand-built pieces", es: "piezas torneadas y modeladas a mano" },
+    footer_text: { eus: "Akibuz Zeramika — Ukitzeko diseinatua. Gogoan izateko errea.", en: "Akibuz Ceramics — Engineered to be touched. Fired to be remembered.", es: "Akibuz Ceramics — Diseñada para ser tocada. Cocida para ser recordada." },
+    footer_tagline: { eus: "Euskal Herrian, eskuz eta suaz · akibuz.ceramics", en: "Basque Country · handmade & unique · akibuz.ceramics", es: "País Vasco · hecho a mano · akibuz.ceramics" },
+    hero_tagline: { eus: "Ukitzeko diseinatua. Gogoan izateko errea.", en: "Engineered to be touched. Fired to be remembered.", es: "Diseñada para ser tocada. Cocida para ser recordada." },
+    hero_sub: { eus: "Euskal Herriko zeramika eskuarekin egina. Prototipo bakarrak — inoiz errepikatu gabe.", en: "Handmade ceramics from the Basque Country. Each piece is a unique prototype — never repeated.", es: "Cerámica hecha a mano desde el País Vasco. Cada pieza es un prototipo único — nunca repetido." },
     about_title: { eus: "Nori buruz", en: "About me", es: "Sobre mí" },
     about_caption: { eus: "Eskuak eta buztina — pieza bakoitzak istorio bat kontatzen du", en: "Hands and clay — every piece tells a story", es: "Manos y arcilla — cada pieza cuenta una historia" },
     about_intro_text: { 
@@ -732,6 +776,13 @@
 
   function renderAboutPage() {
     const html = `
+      <div class="brand-hero">
+        <p class="brand-hero-tagline">${t("hero_tagline")}</p>
+        <p class="brand-hero-sub">${t("hero_sub")}</p>
+        <a href="https://www.etsy.com/shop/akibuz" target="_blank" rel="noopener noreferrer" class="hero-etsy-btn">
+          🛒 <span>${currentLang === 'eus' ? 'Etsy-n ikusi' : currentLang === 'es' ? 'Ver en Etsy' : 'Shop on Etsy'}</span>
+        </a>
+      </div>
       <img class="about-hero" src="${artistPortrait}" alt="Alaitz — Akibuz Ceramics">
       <div class="caption" style="margin-bottom:1rem;">${t("about_caption")}</div>
       <div class="about-intro">${t("about_intro_text").replace(/\n/g,'<br>')}</div>
